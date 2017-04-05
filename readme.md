@@ -48,11 +48,12 @@ Read more - [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/bitcoin-api
 
 MSSQL Table for package
 --------------------------
-Package uses own database with table crypto_payments where all bitcoin/altcoin payments made to you will be stored. 
+The package uses its own database with table crypto_payments where all bitcoin/altcoin payments made to you would be stored. 
 You can have multiple cryptoboxes on site (such as bitcoin, dash, dogecoin, etc) and all payment information for such transactions 
 will be stored in that one table.
 
-If you wish to move table to your existing database, please run query below, it will create new crypto_payments table in your existing database; and after configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53).
+
+If you wish to move the table to your existing database, please run query below, it will create new crypto_payments table in your existing database; and after configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53).
 
 
 	CREATE TABLE dbo.crypto_payments (

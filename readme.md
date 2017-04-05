@@ -15,7 +15,7 @@ API NuGet ASP .NET MVC: https://www.nuget.org/packages/GoUrl.io/
 
 API Bitcoin ASP.NET Instruction: [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/bitcoin-api-asp.html)
 
-API Bitcoin PHP Instruction: [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/bitcoin-bitcoin-api-asp.html)
+API Bitcoin PHP Instruction: [https://gourl.io/api-php.html](https://gourl.io/api-php.html)
 
 API Python, Java, Node.js, etc: [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/api.html)
 

@@ -10,7 +10,7 @@ using Gourl.Models.GoUrl;
 
 //* ###  PLEASE MODIFY THIS FILE
 //* ###
-//* ###  Add dditional actions after a payment has been received -
+//* ###  Add additional actions after a payment has been received -
 //* ###  update database records, send email to user, etc
 
 //* ##########################################

@@ -30,16 +30,16 @@ Demo: [https://gourl.io/bitcoin-payment-gateway-api.html](https://gourl.io/bitco
 
 Instruction - ASP .NET Bitcoin/Altcoin Plugin
 ----------------------------------------------
-*  Install plugin from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is plugin only without examples) 
+* 1. Install plugin from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is plugin only without examples) 
 *  or download full plugin with Examples from github / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
-* Plugin can use database for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to use it you will  need to create a new MSSQL table (crypto_payments) and configure 'connectionStrings' in /GoUrl/Web.config. Plugin Database store in /App_Data folder.
-* [Free Register](https://gourl.io/view/registration/New_User_Registration.html) or [Login](https://gourl.io/info/memberarea/My_Account.html) on the gourl.io, [create new payment box/es](https://gourl.io/editrecord/coin_boxes/0) and get free GoUrl Private/Public Keys ([screenshot](https://gourl.io/images/paymentbox1.png))
-* Place all your [GoUrl Private Keys](https://gourl.io/images/paymentbox1.png) in /GoUrl/Web.config ([screenshot](https://gourl.io/images/instruction-asp-config1.png))
-* Add in your _Layout  line - &lt;script type="text/javascript" src="~/scripts/cryptobox.js"&gt;&lt;/script&gt;. See example - /GoUrl/Views/Shared/_Layout.cshtml 
-* Create payment controller with your public/private keys, orderID, userID, etc. See example controller - /GoUrl/Controllers/GoUrl/ExamplesController.cs ([screenshot](https://gourl.io/images/instruction-asp-config2.png))
-* Edit file /GoUrlCore/NewPayment.cs to add additional actions after a payment has been received (update database records, send email to user, etc). 
-* You will need to place Callback URL in bitcoin/altcoin payment box ([screenshot](https://gourl.io/images/paymentbox6.png)), please use: http://yoursite.com/GoUrl/Callback
-* Run examples from /GoUrl/Views/Examples/
+* 2. Plugin can use database for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to use it you will  need to create a new MSSQL table ([crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-plugin)) and configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Plugin Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. HTML Page with [Payment Table Example](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
+* 3. [Free Register](https://gourl.io/view/registration/New_User_Registration.html) or [Login](https://gourl.io/info/memberarea/My_Account.html) on the gourl.io, [create new payment box/es](https://gourl.io/editrecord/coin_boxes/0) and get free GoUrl Private/Public Keys ([screenshot](https://gourl.io/images/paymentbox1.png))
+* 4. Place all your [GoUrl Private Keys](https://gourl.io/images/paymentbox1.png) in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L15) ([screenshot](https://gourl.io/images/instruction-asp-config1.png))
+* 5. Add in your _Layout  line - &lt;script type="text/javascript" src="~/scripts/cryptobox.js"&gt;&lt;/script&gt;. See example - [/GoUrl/Views/Shared/_Layout.cshtml](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Shared/_Layout.cshtml#L8)
+* 6. Create payment controller with your public/private keys, orderID, userID, etc. See example controller - [/GoUrl/Controllers/GoUrl/ExamplesController.cs](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Controllers/GoUrl/ExamplesController.cs#L22) ([screenshot](https://gourl.io/images/instruction-asp-config2.png))
+* 7. Edit file [/GoUrl/GoUrlCore/NewPayment.cs](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/GoUrlCore/NewPayment.cs#L9) to add additional actions after a payment has been received (update database records, send email to user, etc). 
+* 8. You will need to place Callback URL in bitcoin/altcoin payment box ([screenshot](https://gourl.io/images/paymentbox6.png)), please use: http://yoursite.com/GoUrl/Callback
+* 9. Run examples from [/GoUrl/Views/Examples/](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/Views/Examples)
 
 THAT'S IT! CRYPTOCOIN PAYMENT BOX/CAPTCHA SHOULD NOW BE WORKING ON YOUR SITE.
 
@@ -183,5 +183,5 @@ PHP Examples / Live Demo :
 * **Pay-Per-Registration**: Example7 - [multiple crypto](http://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](http://gourl.io/lib/examples/pay-per-registration.php)
 * **Pay-Per-Page-Access**: Example19 - [multiple crypto](http://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](http://gourl.io/lib/examples/pay-per-page.php)
 * **Pay-Per-Membership**: Example11 - [multiple crypto](http://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](http://gourl.io/lib/examples/pay-per-membership.php)
-              
+          
             

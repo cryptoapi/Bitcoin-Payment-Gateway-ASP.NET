@@ -17,7 +17,7 @@ API Bitcoin ASP.NET Instruction: [https://gourl.io/bitcoin-api-asp.html](https:/
 
 API Bitcoin PHP Instruction: [https://gourl.io/api-php.html](https://gourl.io/api-php.html)
 
-API Python, Java, Node.js, etc: [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/api.html)
+API Python, Java, Node.js, etc: [https://gourl.io/api.html](https://gourl.io/api.html)
 
 Wordpress Plugin: [https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/](https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/)
 
@@ -183,5 +183,5 @@ PHP Examples / Live Demo :
 * **Pay-Per-Registration**: Example7 - [multiple crypto](http://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](http://gourl.io/lib/examples/pay-per-registration.php)
 * **Pay-Per-Page-Access**: Example19 - [multiple crypto](http://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](http://gourl.io/lib/examples/pay-per-page.php)
 * **Pay-Per-Membership**: Example11 - [multiple crypto](http://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](http://gourl.io/lib/examples/pay-per-membership.php)
-          
-            
+       
+  

@@ -32,7 +32,7 @@ Instruction - ASP .NET Bitcoin/Altcoin Package
 ----------------------------------------------
 * 1. Install package from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is package only without examples) 
 *  or download full package with Examples from github / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
-* 2. Package can use database for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to use it you will  need to create a new MSSQL table ([crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package)) and configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Package Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. HTML Page with [Payment Table Example](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
+* 2. Package uses own database with table [crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package) (file [/GoUrl/App_Data/GourlDb.mdf](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data)) for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to move this table to your existing database, run [sql query](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package), it will create new MSSQL "crypto_payments" table in your existing database; and after configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Package default Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. Example - Asp Page with [All Payment Statistics](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
 * 3. [Free Register](https://gourl.io/view/registration/New_User_Registration.html) or [Login](https://gourl.io/info/memberarea/My_Account.html) on the gourl.io, [create new payment box/es](https://gourl.io/editrecord/coin_boxes/0) and get free GoUrl Private/Public Keys ([screenshot](https://gourl.io/images/paymentbox1.png))
 * 4. Place all your [GoUrl Private Keys](https://gourl.io/images/paymentbox1.png) in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L15) ([screenshot](https://gourl.io/images/instruction-asp-config1.png))
 * 5. Add in your _Layout  line - &lt;script type="text/javascript" src="~/scripts/cryptobox.js"&gt;&lt;/script&gt;. See example - [/GoUrl/Views/Shared/_Layout.cshtml](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Shared/_Layout.cshtml#L8)
@@ -48,9 +48,11 @@ Read more - [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/bitcoin-api
 
 MSSQL Table for package
 --------------------------
-Please run query below which will create an MSSQL table where all bitcoin/altcoin payments made to you will be stored. 
-You can have multiple cryptoboxes on site (such as bitcoin, dash, dogecoin/etc) and all payment information for such transactions 
+Package uses own database with table crypto_payments where all bitcoin/altcoin payments made to you will be stored. 
+You can have multiple cryptoboxes on site (such as bitcoin, dash, dogecoin, etc) and all payment information for such transactions 
 will be stored in that one table.
+
+If you wish to move table to your existing database, please run query below, it will create new crypto_payments table in your existing database; and after configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53).
 
 
 	CREATE TABLE dbo.crypto_payments (
@@ -183,5 +185,5 @@ PHP Examples / Live Demo :
 * **Pay-Per-Registration**: Example7 - [multiple crypto](http://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](http://gourl.io/lib/examples/pay-per-registration.php)
 * **Pay-Per-Page-Access**: Example19 - [multiple crypto](http://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](http://gourl.io/lib/examples/pay-per-page.php)
 * **Pay-Per-Membership**: Example11 - [multiple crypto](http://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](http://gourl.io/lib/examples/pay-per-membership.php)
-       
+          
   

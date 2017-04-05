@@ -28,11 +28,11 @@ Demo: [https://gourl.io/bitcoin-payment-gateway-api.html](https://gourl.io/bitco
 # ![Payment-Gateway](https://gourl.io/images/gateway_asp.jpg)
 
 
-Instruction - ASP .NET Bitcoin/Altcoin Plugin
+Instruction - ASP .NET Bitcoin/Altcoin Package
 ----------------------------------------------
-* 1. Install plugin from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is plugin only without examples) 
-*  or download full plugin with Examples from github / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
-* 2. Plugin can use database for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to use it you will  need to create a new MSSQL table ([crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-plugin)) and configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Plugin Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. HTML Page with [Payment Table Example](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
+* 1. Install package from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is package only without examples) 
+*  or download full package with Examples from github / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
+* 2. Package can use database for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to use it you will  need to create a new MSSQL table ([crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package)) and configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Package Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. HTML Page with [Payment Table Example](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
 * 3. [Free Register](https://gourl.io/view/registration/New_User_Registration.html) or [Login](https://gourl.io/info/memberarea/My_Account.html) on the gourl.io, [create new payment box/es](https://gourl.io/editrecord/coin_boxes/0) and get free GoUrl Private/Public Keys ([screenshot](https://gourl.io/images/paymentbox1.png))
 * 4. Place all your [GoUrl Private Keys](https://gourl.io/images/paymentbox1.png) in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L15) ([screenshot](https://gourl.io/images/instruction-asp-config1.png))
 * 5. Add in your _Layout  line - &lt;script type="text/javascript" src="~/scripts/cryptobox.js"&gt;&lt;/script&gt;. See example - [/GoUrl/Views/Shared/_Layout.cshtml](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Shared/_Layout.cshtml#L8)
@@ -46,7 +46,7 @@ THAT'S IT! CRYPTOCOIN PAYMENT BOX/CAPTCHA SHOULD NOW BE WORKING ON YOUR SITE.
 Read more - [https://gourl.io/bitcoin-api-asp.html](https://gourl.io/bitcoin-api-asp.html)
 
 
-MSSQL Table for plugin
+MSSQL Table for package
 --------------------------
 Please run query below which will create an MSSQL table where all bitcoin/altcoin payments made to you will be stored. 
 You can have multiple cryptoboxes on site (such as bitcoin, dash, dogecoin/etc) and all payment information for such transactions 
@@ -110,7 +110,7 @@ Our Payment Gateway with Instant Checkout allows you to easily organise your web
 Introduction
 ----------------
 
-GoUrl Bitcoin/Altcoin Payment Gateway offer a simple ASP.NET C# Plugin which you can easily integrate into your own ASP website in minutes.
+GoUrl Bitcoin/Altcoin Payment Gateway offer a simple ASP.NET C# Package which you can easily integrate into your own ASP website in minutes.
 
 Start accepting payments on your website, including all major cryptocoins, and start selling online in minutes. No application process.
 

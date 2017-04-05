@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Repository GourlDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="crypto_payments">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="boxID" Type="int" Nullable="false" />
+          <Property Name="boxType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="orderID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="countryID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="coinLabel" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="amountUSD" Type="decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="unrecognised" Type="tinyint" Nullable="false" />
+          <Property Name="addr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="txID" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="txDate" Type="datetime" />
+          <Property Name="txConfirmed" Type="tinyint" Nullable="false" />
+          <Property Name="txCheckDate" Type="datetime" />
+          <Property Name="processed" Type="tinyint" Nullable="false" />
+          <Property Name="processedDate" Type="datetime" />
+          <Property Name="recordCreated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="Repository GourlDbModelContainer">
+          <EntitySet Name="crypto_payments" EntityType="Self.crypto_payments" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GourlDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="crypto_payments">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="boxID" Type="Int32" Nullable="false" />
+          <Property Name="boxType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="orderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="countryID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="coinLabel" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="amountUSD" Type="Decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="unrecognised" Type="Byte" Nullable="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="txID" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="txDate" Type="DateTime" Precision="3" />
+          <Property Name="txConfirmed" Type="Byte" Nullable="false" />
+          <Property Name="txCheckDate" Type="DateTime" Precision="3" />
+          <Property Name="processed" Type="Byte" Nullable="false" />
+          <Property Name="processedDate" Type="DateTime" Precision="3" />
+          <Property Name="recordCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="GoUrlEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="crypto_payments" EntityType="Self.crypto_payments" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Repository GourlDbModelContainer" CdmEntityContainer="GoUrlEntities">
+          <EntitySetMapping Name="crypto_payments">
+            <EntityTypeMapping TypeName="GourlDbModel.crypto_payments">
+              <MappingFragment StoreEntitySet="crypto_payments">
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+                <ScalarProperty Name="boxID" ColumnName="boxID" />
+                <ScalarProperty Name="boxType" ColumnName="boxType" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="coinLabel" ColumnName="coinLabel" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="amountUSD" ColumnName="amountUSD" />
+                <ScalarProperty Name="unrecognised" ColumnName="unrecognised" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="txID" ColumnName="txID" />
+                <ScalarProperty Name="txDate" ColumnName="txDate" />
+                <ScalarProperty Name="txConfirmed" ColumnName="txConfirmed" />
+                <ScalarProperty Name="txCheckDate" ColumnName="txCheckDate" />
+                <ScalarProperty Name="processed" ColumnName="processed" />
+                <ScalarProperty Name="processedDate" ColumnName="processedDate" />
+                <ScalarProperty Name="recordCreated" ColumnName="recordCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="No" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

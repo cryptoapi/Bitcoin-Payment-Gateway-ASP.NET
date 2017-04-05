@@ -1,0 +1,61 @@
+﻿@using Gourl.GoUrlCore
+@model Gourl.Models.GoUrl.DisplayCryptoboxModel
+
+@{
+    ViewBag.Title = "Pay Per Registration Multi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align='center'>
+    <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
+        8. Gourl <b>Pay-Per-Registration</b> Example (multiple cryptocurrencies). Use it on your website.
+        <div style='float: right;'>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html#p4'>View Source</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href=@Url.Action("PayPerRegistration", "Examples" )@Request.Url.Query.ToString()>Single Crypto</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+        </div>
+    </div>
+    <br>
+    <h1>Example - Paid Registration (multi coins below)</h1>
+    <h3>Website Registration Form. Protection against spam!</h3>
+    <br>
+    <img alt='Cryptocoin Registration Form' border='0' src='https://gourl.io/images/example8.png'>
+    <a name='i'></a>
+    @if (ViewBag.successful)
+    {
+
+        <div align='center' style='margin: 40px; font-size: 24px; color: #339e2e; font-weight: bold'>You have been successfully registered on our website!</div>
+
+    }
+    else
+    {
+        <form name='form1' style='font-size: 14px; color: #444' action=@Url.Action("PayPerRegistration") method="post">
+            <table cellspacing='20'>
+                <tr><td colspan='2'><b>NEW USER</b>@Html.Raw(ViewBag.error)<input type='text' style='display: none'><input type='password' style='display: none'></td></tr>
+                <tr><td width='100'>Name: </td><td width='300'><input style='padding: 6px; font-size: 18px;' size='30' type="text" name="fname" value="@ViewBag.fname"></td></tr>
+                <tr><td>Email: </td><td><input style='padding: 6px; font-size: 18px;' size='40' type="text" name="femail" value="@ViewBag.femail"></td></tr>
+                <tr><td>Password: </td><td><input style='padding: 6px; font-size: 18px;' size='35' type="password" name="fpassword" value="@ViewBag.fpassword"><br><br></td></tr>
+            </table>
+        </form>
+        <div style='width: 600px; padding-top: 10px'>
+            <div style='font-size: 12px; margin: 5px 0 5px 390px;'>Language: &#160; @Html.LanguageBox()</div>
+            @if (!Model.is_paid)
+            {
+                <div align='left'>@Html.CurrencyBox((string[]) ViewBag.Coins, (string) ViewBag.DefCoin, (string) ViewBag.DefLang, 60, new {style = "margin: 80px 0 0 0"})</div>
+            }
+            @Html.Cryptobox(Model, true, 540, 230, new {style = "border-radius:15px;border:2px dashed #eee;padding:3px 6px;margin:10px"})
+        </div>
+        if (!Model.is_paid)
+        {
+            <br>
+            string.Format("* You need to pay {0}s (~{1} US$) for posting your text on our website", @Model.coinName, @Model.amountUSD);
+            <br>
+        }
+        <br>
+        <br>
+        <button onclick='document.form1.submit()' style='padding: 6px 20px; font-size: 18px;'>Register</button>
+    }
+
+
+</div><br><br><br><br><br><br>
+<div style='position:absolute;left:0;'><a target="_blank" href="http://validator.w3.org/check?uri=@HttpContext.Current.Request.Url.AbsoluteUri"><img src="https://gourl.io/images/w3c.png" alt="Valid HTML 4.01 Transitional"></a></div>

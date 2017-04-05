@@ -1,0 +1,44 @@
+﻿@model System.Collections.Generic.IEnumerable<Gourl.Models.crypto_payments>
+
+    @{
+    ViewBag.Title = "Payments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 10);
+    }
+
+<style type="text/css">
+    .gridStyle {background-color: black; border: 1px; text-align: center;}
+    .headerGrid {background-color: tan;}
+    .rowGrid {background-color: white;}
+    .altRowGrid {background-color: wheat;}
+    .footerGrid {background-color: yellow;}
+</style>
+
+@if (Model != null)
+    {
+        @grid.GetHtml(
+            columns: grid.Columns(
+                grid.Column(columnName: "paymentID", header: "Payment ID"),
+                grid.Column(columnName: "boxID", header: "Box ID"),
+                grid.Column(columnName: "coinLabel", header: "Coin"),
+                grid.Column(columnName: "orderID", header: "Order ID"),
+                grid.Column(columnName: "amount", header: "Paid Amount", format: o => o.amount + " " + o.coinLabel),
+                grid.Column(columnName: "amountUSD", header: "Approximate in USD", format: o => Math.Round(o.amountUSD, 2) + " USD"),
+                grid.Column(columnName: "unrecognised", header: "Unrecognised Payment", format: (item) => @Html.Raw("<input type='checkbox' " + (item.txConfirmed != 0 ? "checked" : "") + " disabled='disabled'/>")),
+                grid.Column(columnName: "userID", header: "User ID"),
+                grid.Column(columnName: "countryID", header: "User Country"),
+                grid.Column(columnName: "txConfirmed", header: "Confirmed Payment", format: (item) => @Html.Raw("<input type='checkbox' " + (item.txConfirmed != 0 ? "checked" : "") + " disabled='disabled'/>")),
+                grid.Column(columnName: "txDate", header: "Transaction Time (GMT)"),
+                grid.Column(columnName: "txID", header: "Transaction ID"),
+                grid.Column(columnName: "addr", header: "Internal Gourl Address"),
+                grid.Column(columnName: "recordCreated", header: "Record Created (local time)")
+                ),
+                tableStyle:"gridStyle",
+                headerStyle:"headerGrid",
+                rowStyle:"rowGrid",
+                alternatingRowStyle:"altRowGrid",
+                footerStyle:"footerGrid"
+            )
+    }
+
+

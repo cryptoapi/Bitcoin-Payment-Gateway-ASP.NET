@@ -1,0 +1,13 @@
+﻿<configuration>
+  <appSettings>
+    <!--ARRAY OF ALL YOUR CRYPTOBOX PRIVATE KEYS
+        Place values from your gourl.io signup page-->    
+        <add key="PrivateKeys" value="your_privatekey_for_box1, your_privatekey_for_box2 (otional), etc..." />
+  </appSettings>
+  <system.web>
+        <globalization uiCulture="en" culture="en-US" />
+  </system.web>
+  <connectionStrings>
+    <add name="GoUrlEntities" connectionString="metadata=res://*/;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\GourlDb.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+</configuration>

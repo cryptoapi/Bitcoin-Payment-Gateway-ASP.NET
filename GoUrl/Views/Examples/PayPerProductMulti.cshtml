@@ -1,0 +1,36 @@
+﻿@using Gourl.GoUrlCore
+@model Gourl.Models.GoUrl.DisplayCryptoboxModel
+
+@{
+    ViewBag.Title = "Pay Per Product Multi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align='center'>
+    <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
+        2. Gourl <b>Pay-Per-Product</b> Example (multiple cryptocurrencies). Use it on your website.
+        <div style='float: right;'>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html#p1'>View Source</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href=@Url.Action("PayPerProduct", "Examples" )@Request.Url.Query.ToString()>Single Crypto</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+        </div>
+    </div>
+    <h1>Example - Customer Invoice (multi coins below)</h1>
+    <br>
+    <img style='position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;' alt='status' src='https://gourl.io/images/@(Model.is_paid?"paid":"unpaid").png'>
+    <img alt='Invoice' border='0' height='500' src='https://gourl.io/images/invoice.png'>
+    <br><br>
+    @if (!Model.is_paid)
+    {
+        @Html.CurrencyBox((string[]) ViewBag.Coins, (string) ViewBag.DefCoin, (string) ViewBag.DefLang, 60, new {style = "margin: 80px 0 0 0"})
+        <br><br><h2>Pay Invoice Now - </h2>
+    }
+    <br><br>
+    <div style='margin: 30px 0 5px 300px'>Language: &#160; @Html.LanguageBox()</div>
+    @Html.Cryptobox(Model, true, 580, 230, new {style = "border-radius:15px;border:1px solid #eee;padding:3px 6px;margin:10px;"}, new {style = "display:inline-block;max-width:580px;padding:15px 20px;border:1px solid #eee;margin:7px;line-height:25px;"})
+    <br><br><br>
+    <h3>Message :</h3>
+    <h2 style='color:#999'>@Html.Raw(ViewBag.message)</h2>
+
+</div><br><br><br><br><br><br>
+<div style='position:absolute;left:0;'><a target="_blank" href="http://validator.w3.org/check?uri=@HttpContext.Current.Request.Url.AbsoluteUri"><img src="https://gourl.io/images/w3c.png" alt="Valid HTML 4.01 Transitional"></a></div>

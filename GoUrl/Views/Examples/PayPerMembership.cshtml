@@ -1,0 +1,49 @@
+﻿@using Gourl.GoUrlCore
+@model Gourl.Models.GoUrl.DisplayCryptoboxModel
+
+@{
+    ViewBag.Title = "Pay Per Multi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align='center'>
+    <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
+        11. Gourl <b>Pay-Per-Membership</b> Example (@Model.coinName payments). Use it on your website.
+        <div style='float: right;'>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://github.com/cryptoapi/Payment-Gateway/blob/master/Examples/pay-per-membership.php'>View Source</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href=@Url.Action("PayPerMembershipMulti", "Examples")@Request.Url.Query.ToString()>Multiple Crypto</a>
+            <a style='font-size:15px;color:#389ad8;margin-right:20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+        </div>
+    </div>
+    <br>
+    <h1>Example - Upgrading to a Premium Account</h1>
+    @if (Model.is_paid)
+    {
+        <!-- User already paid premium membership -->
+        <!-- You can use this function - $box->is_paid() on all other your premium webpages, it will return true during all user paid period (1 month) -->
+        <!-- Your Premium Pages Code Here -->
+        <br>
+        <br>
+        <br>
+        @ViewBag.Message
+        <br>
+        <br>
+        <br>
+    }
+    else
+    {
+        <!-- Awaiting Payment -->
+        <a href='#gourlcryptocoins'><img alt='Awaiting Payment - Cryptocoin Pay Per Membership' border='0' src='https://gourl.io/images/example10.png'></a>
+        <br>
+        <br>
+        <br>
+        <h3>Upgrade Your Membership Now ( $@Model.amountUSD per @Model.period ) - </h3>
+    }
+
+    <div style='font-size:12px;margin:50px 0 5px 370px'>Language: &#160; @Html.LanguageBox("en")</div>
+    @Html.Cryptobox(Model, true, 540, 230, new {style = "padding:3px 6px;margin:10px;border:10px solid #f7f5f2;"})
+
+
+</div><br><br><br><br><br><br>
+<div style='position:absolute;left:0;'><a target="_blank" href="http://validator.w3.org/check?uri=@HttpContext.Current.Request.Url.AbsoluteUri"><img src="https://gourl.io/images/w3c.png" alt="Valid HTML 4.01 Transitional"></a></div>
+

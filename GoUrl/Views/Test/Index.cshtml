@@ -1,0 +1,112 @@
+﻿@using Gourl.Models.GoUrl
+@model IPNModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <script type="text/javascript" src="~/scripts/cryptobox.js"></script>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("Callback", "Gourl", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.status, new {Value = "payment_received"})
+        @Html.HiddenFor(x => x.err, new {Value = ""})
+        @Html.Hidden("private_key", "-your private key for Dogecoin box-")
+        @Html.HiddenFor(x => x.private_key_hash, new {Value = "9eec7b30b499f20e9e10b190a3428591a0cbe757bf9f0ef1a16b376afe3d6b0236156cc6c3a18154856f29cf14748f25db5058099c49a16b77d143ad61dda80e"})
+        @Html.HiddenFor(x => x.box, new {Value = "7631"})
+        @Html.HiddenFor(x => x.boxtype, new {Value = "paymentbox"})
+        @Html.HiddenFor(x => x.order, new {Value = "invoice000383"})
+        @Html.HiddenFor(x => x.user, new {Value = "77962519__f909c144b1"})
+        @Html.HiddenFor(x => x.usercountry, new {Value = "UKR"})
+        @Html.HiddenFor(x => x.amount, new {Value = "42.3786"})
+        @Html.HiddenFor(x => x.amountusd, new {Value = "0.01"})
+        @Html.HiddenFor(x => x.coinlabel, new {Value = "DOGE"})
+        @Html.HiddenFor(x => x.coinname, new {Value = "dogecoin"})
+        @Html.HiddenFor(x => x.addr, new {Value = "DQiR24h4D2GTEBA71rSQmfWEKkawBywiMq"})
+        @Html.HiddenFor(x => x.tx, new {Value = "174fe393b3d0d895b6b7d4e2059a08aad0d078a5d9a897193fc1a2c9562de161"})
+        @Html.HiddenFor(x => x.confirmed, new {Value = "0"})
+        @Html.HiddenFor(x => x.timestamp, new {Value = "1489693522"})
+        @Html.HiddenFor(x => x.date, new {Value = "16 March 2017"})
+        @Html.HiddenFor(x => x.datetime, new {Value = "2017-03-16 19:45:22"})
+
+        <button type="submit" id="submit">Send Ok</button>
+    }
+</div>
+
+<div>
+    @using (Html.BeginForm("Callback", "Gourl", FormMethod.Post))
+    {
+
+        @Html.HiddenFor(x => x.status, new {Value = "payment_received_unrecognised"})
+        @Html.HiddenFor(x => x.err, new {Value = "An incorrect dogecoin amount has been received"})
+        @Html.HiddenFor(x => x.private_key_hash, new {Value = "9eec7b30b499f20e9e10b190a3428591a0cbe757bf9f0ef1a16b376afe3d6b0236156cc6c3a18154856f29cf14748f25db5058099c49a16b77d143ad61dda80e"})
+        @Html.HiddenFor(x => x.box, new {Value = "7631"})
+        @Html.HiddenFor(x => x.boxtype, new {Value = "paymentbox"})
+        @Html.HiddenFor(x => x.order, new {Value = ""})
+        @Html.HiddenFor(x => x.user, new {Value = ""})
+        @Html.HiddenFor(x => x.usercountry, new {Value = ""})
+        @Html.HiddenFor(x => x.amount, new {Value = "50"})
+        @Html.HiddenFor(x => x.amountusd, new {Value = "10.010278"})
+        @Html.HiddenFor(x => x.coinlabel, new {Value = "DOGE"})
+        @Html.HiddenFor(x => x.coinname, new {Value = "dogecoin"})
+        @Html.HiddenFor(x => x.addr, new {Value = "DCxLFqYgakMkrmrLxSr3ro5xGzPSGyyj45"})
+        @Html.HiddenFor(x => x.tx, new {Value = "0898f41ea715e72276cc072f252ec1b1acd194d5e1832ea071c0d105ff910c9b"})
+        @Html.HiddenFor(x => x.confirmed, new {Value = "0"})
+        @Html.HiddenFor(x => x.timestamp, new {Value = "1487795647"})
+        @Html.HiddenFor(x => x.date, new {Value = "22 February 2017"})
+        @Html.HiddenFor(x => x.datetime, new {Value = "2017-02-22 20:34:07"})
+
+        <button type="submit" id="submit">Send No</button>
+    }
+</div>
+
+<div>
+    @using (Html.BeginForm("Callback", "Gourl", FormMethod.Post))
+    {
+
+        @Html.HiddenFor(x => x.status, new {Value = "sfsdf"})
+        @Html.HiddenFor(x => x.err, new {Value = ""})
+        @Html.HiddenFor(x => x.private_key_hash, new {Value = "e6db4c489df92c261e2d0f4e99d90ed6013b0d705a643bb790e80c9218fada7a23fb72db85e1792d8fc912bc65e9760651c4dcb2f85686ca190628757e4a67c4"})
+        @Html.HiddenFor(x => x.box, new {Value = "120"})
+        @Html.HiddenFor(x => x.boxtype, new {Value = "paymentbox"})
+        @Html.HiddenFor(x => x.order, new {Value = "order15620A"})
+        @Html.HiddenFor(x => x.user, new {Value = "user26"})
+        @Html.HiddenFor(x => x.usercountry, new {Value = "USA"})
+        @Html.HiddenFor(x => x.amount, new {Value = "0.0479166"})
+        @Html.HiddenFor(x => x.amountusd, new {Value = "11.5"})
+        @Html.HiddenFor(x => x.coinlabel, new {Value = "BTC"})
+        @Html.HiddenFor(x => x.coinname, new {Value = "bitcoin"})
+        @Html.HiddenFor(x => x.addr, new {Value = "14dt2cSbvwghDcETJDuvFGHe5bCsCPR9jW"})
+        @Html.HiddenFor(x => x.tx, new {Value = "95ed924c215f2945e75acfb5650e28384deac382c9629cf0d3f31d0ec23db08d"})
+        @Html.HiddenFor(x => x.confirmed, new {Value = "0"})
+        @Html.HiddenFor(x => x.timestamp, new {Value = "1422624765"})
+        @Html.HiddenFor(x => x.date, new {Value = "30 January 2015"})
+        @Html.HiddenFor(x => x.datetime, new {Value = "2015-01-30 13:32:45"})
+
+        <button type="submit" id="submit">Send error</button>
+    }
+</div>
+
+    <div>
+        @using (Html.BeginForm("Callback", "Gourl", FormMethod.Post))
+        {
+
+        @Html.HiddenFor(x => x.private_key_hash, new {Value = "e6db4c489df92c261e2d0f4e99d90ed6013b0d705a643bb790e80c9218fada7a23fb72db85e1792d8fc912bc65e9760651c4dcb2f85686ca190628757e4a67c4"})
+        @Html.Hidden("plugin_ver", "1")
+
+        <button type="submit" id="submit">Send plugin version</button>
+        }
+    </div>
+
+Test convert_currency_live():
+1 USD = @ViewBag.Amount BTC;
+
+</body>
+</html>

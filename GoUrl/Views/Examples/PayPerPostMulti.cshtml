@@ -1,0 +1,62 @@
+﻿@using Gourl.GoUrlCore
+@model Gourl.Models.GoUrl.DisplayCryptoboxModel
+
+@{
+    ViewBag.Title = "Pay Per Post Multi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align='center'>
+    <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
+        6. Gourl <b>Pay-Per-Post</b> Example (multiple cryptocurrencies). Use it on your website.
+        <div style='float: right;'>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html#p3'>View Source</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href=@Url.Action("PayPerPostMulti", "Examples")@Request.Url.Query.ToString()>Single Crypto</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+        </div>
+    </div>
+    <h1>Example - Paid Posts (multi coins below)</h1>
+    You can sell right to publish new posts on your website
+    <br><br><br>
+    <img alt='Invoice' border='0' src='https://gourl.io/images/example6.png'>
+    <a name='i'></a>
+    @if (ViewBag.successful)
+    {
+
+        <div align='center'>
+            <img alt='New Post' border='0' src='https://gourl.io/images/example7.png'>
+            <div style='margin: 40px; font-size: 24px; color: #339e2e; font-weight: bold'>Your text has been successfully posted on our website!</div>
+            @Html.ActionLink("Publish new posts", "PayPerPostMulti")
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm("PayPerPostMulti", "Examples", FormMethod.Post, new {style = "font-size: 14px; color: #444"}))
+        {
+            <table cellspacing='20'>
+                <tr><td colspan='2'><img alt='New Post' border='0' src='https://gourl.io/images/example7.png'>@Html.Raw(ViewBag.error)</td></tr>
+                <tr><td width='100'>Title: </td><td width='300'><input style='padding: 6px; font-size: 18px;' size='40' type="text" name="ftitle" value="@ViewBag.ftitle"></td></tr>
+                <tr><td>Text: </td><td><textarea style='padding: 6px; font-size: 18px;' rows="4" cols="40" name="ftext">@ViewBag.ftext</textarea></td></tr>
+                @if (!Model.is_paid)
+                {
+                    <tr><td colspan='2'>@string.Format("* You need to pay {0}s (~{1} US$) for posting your text on our website", @Model.coinName, @Model.amountUSD)</td></tr>
+                }
+            </table>
+            <button type='submit' id='submit' style='padding: 6px 20px; font-size: 18px;'>Post Your Article/Comment</button>
+            <div style='width: 600px; background-color: #f9f9f9; padding-top: 10px'>
+                <div style='font-size: 12px; margin: 5px 0 5px 390px;'>Language: &#160; @Html.LanguageBox()</div>
+                @if (!Model.is_paid)
+                {
+                    @Html.CurrencyBox((string[]) ViewBag.Coins, (string) ViewBag.DefCoin, (string) ViewBag.DefLang, 60, new {style = "margin: 80px 0 0 0"})
+                }
+                @Html.Cryptobox(Model)
+            </div>
+            <br>
+            <br>
+            <br>
+        }
+    }
+
+
+</div><br><br><br><br><br><br>
+<div style='position:absolute;left:0;'><a target="_blank" href="http://validator.w3.org/check?uri=@HttpContext.Current.Request.Url.AbsoluteUri"><img src="https://gourl.io/images/w3c.png" alt="Valid HTML 4.01 Transitional"></a></div>

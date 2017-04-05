@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.WebPages.Razor</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.WebPages.Razor.CompilingPathEventArgs">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Представляет базовый класс для пути компиляции, который содержит данные события.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.CompilingPathEventArgs.#ctor(System.String,System.Web.WebPages.Razor.WebPageRazorHost)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.CompilingPathEventArgs" />.</summary>
+      <param name="virtualPath">Строка виртуального пути.</param>
+      <param name="host">Узел для компонента Razor веб-страницы.</param>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.CompilingPathEventArgs.Host">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает или задает узел для компонента Razor веб-страницы.</summary>
+      <returns>Узел для компонента Razor веб-страницы.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.CompilingPathEventArgs.VirtualPath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает виртуальный путь веб-страницы.</summary>
+      <returns>Виртуальный путь веб-страницы.</returns>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.PreApplicationStartCode">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.PreApplicationStartCode.Start">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.RazorBuildProvider">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Представляет поставщика сборок для Razor.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.#ctor">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.RazorBuildProvider" />.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.AddVirtualPathDependency(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Добавляет в коллекцию зависимость виртуального пути.</summary>
+      <param name="dependency">Добавляемая зависимость виртуального пути.</param>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.RazorBuildProvider.AssemblyBuilder">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает конструктор сборок для среды Razor.</summary>
+      <returns>Конструктор сборок.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.RazorBuildProvider.CodeCompilerType">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает параметры компилятора для среды Razor.</summary>
+    </member>
+    <member name="E:System.Web.WebPages.Razor.RazorBuildProvider.CodeGenerationCompleted">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Осуществляется после завершения формирования кода.</summary>
+    </member>
+    <member name="E:System.Web.WebPages.Razor.RazorBuildProvider.CodeGenerationStarted">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Осуществляется при запуске формирования кода.</summary>
+    </member>
+    <member name="E:System.Web.WebPages.Razor.RazorBuildProvider.CompilingPath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Осуществляется при компиляции с новым виртуальным путем.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.CreateHost">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает экземпляр узла модуля Razor на основании веб-конфигурации.</summary>
+      <returns>Экземпляр узла модуля Razor.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.GenerateCode(System.Web.Compilation.AssemblyBuilder)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает код с помощью предоставленного конструктора сборок.</summary>
+      <param name="assemblyBuilder">Конструктор сборок.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.GetGeneratedType(System.CodeDom.Compiler.CompilerResults)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает тип созданного кода.</summary>
+      <returns>Тип созданного кода.</returns>
+      <param name="results">Результаты компиляции кода.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.GetHostFromConfig">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает экземпляр узла модуля Razor на основании веб-конфигурации.</summary>
+      <returns>Экземпляр узла модуля Razor.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.InternalOpenReader">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Открывает внутренний модуль чтения текста.</summary>
+      <returns>Внутренний модуль чтения текста.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.RazorBuildProvider.OnBeforeCompilePath(System.Web.WebPages.Razor.CompilingPathEventArgs)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Порождает событие CompilingPath.</summary>
+      <param name="args">Данные, предоставленные для события CompilingPath.</param>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.RazorBuildProvider.VirtualPath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает виртуальный путь исходного кода.</summary>
+      <returns>Виртуальный путь исходного кода.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.RazorBuildProvider.VirtualPathDependencies">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает коллекцию виртуальных путей для зависимостей.</summary>
+      <returns>Коллекция виртуальных путей для зависимостей.</returns>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.WebCodeRazorHost">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Представляет узел Razor веб-кода для веб-страниц.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebCodeRazorHost.#ctor(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.WebCodeRazorHost" />.</summary>
+      <param name="virtualPath">Виртуальный путь.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebCodeRazorHost.#ctor(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.WebCodeRazorHost" />.</summary>
+      <param name="virtualPath">Виртуальный путь.</param>
+      <param name="physicalPath">Физический путь.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebCodeRazorHost.GetClassName(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Возвращает имя класса этого экземпляра.</summary>
+      <returns>Имя класса этого экземпляра.</returns>
+      <param name="virtualPath">Виртуальный путь.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebCodeRazorHost.PostProcessGeneratedCode(System.Web.Razor.Generator.CodeGeneratorContext)">
+      <summary>Формирует код последующей обработки для узла Razor веб-кода.</summary>
+      <param name="context">Контекст кода генератора.</param>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.WebPageRazorHost">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Представляет узлы Razor в веб-странице.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.#ctor(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.WebPageRazorHost" /> с указанным виртуальным путем.</summary>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.#ctor(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.WebPageRazorHost" /> с указанным виртуальным и физическим путями.</summary>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+      <param name="physicalPath">Физический путь для файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.AddGlobalImport(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Добавляет глобальный импорт в веб-страницу.</summary>
+      <param name="ns">Имя службы уведомлений.</param>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.CodeLanguage">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает <see cref="T:System.Web.Razor.RazorCodeLanguage" />.</summary>
+      <returns>
+        <see cref="T:System.Web.Razor.RazorCodeLanguage" />.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.CreateMarkupParser">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает средство синтаксического анализа разметки.</summary>
+      <returns>Средство синтаксического анализа разметки.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.DefaultBaseClass">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает или задает значение DefaultBaseClass.</summary>
+      <returns>Значение DefaultBaseClass.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.DefaultClassName">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Возвращает или задает имя класса по умолчанию.</summary>
+      <returns>Имя класса по умолчанию.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.DefaultDebugCompilation">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает или задает значение, которое указывает, заданы ли для отладочной компиляции параметры по умолчанию.</summary>
+      <returns>Значение true, если для отладочной компиляции заданы параметры по умолчанию; в противном случае — значение false.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.DefaultPageBaseClass">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Возвращает или задает базовый класс страницы по умолчанию.</summary>
+      <returns>Базовый класс страницы по умолчанию.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.GetClassName(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Извлекает имя класса, к которому принадлежит указанная веб-страница.</summary>
+      <returns>Имя класса, к которому принадлежит указанная веб-страница.</returns>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.GetCodeLanguage">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает язык кода, указанный в веб-странице.</summary>
+      <returns>Язык кода, указанный в веб-странице.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.GetGlobalImports">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает глобальные импорты для страницы.</summary>
+      <returns>Глобальные импорты для страницы.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.InstrumentedSourceFilePath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает или задает путь к файлам инструментального источника.</summary>
+      <returns>Путь к файлам инструментального источника.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.IsSpecialPage">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает значение, указывающее, является ли веб-страница специальной страницей.</summary>
+      <returns>Значение true, если веб-страница является специальной страницей. В противном случае — значение false.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.PhysicalPath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает физический путь в файловой системе к узлу Razor.</summary>
+      <returns>Физический путь в файловой системе к узлу Razor.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.PostProcessGeneratedCode(System.Web.Razor.Generator.CodeGeneratorContext)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает сформированный код после обработки.</summary>
+      <param name="context">
+        <see cref="T:System.Web.Razor.Generator.CodeGeneratorContext" />.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.RegisterSpecialFile(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Регистрирует специальный файл с указанным именем файла и именем базового типа.</summary>
+      <param name="fileName">Имя файла.</param>
+      <param name="baseTypeName">Имя базового типа.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebPageRazorHost.RegisterSpecialFile(System.String,System.Type)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Регистрирует специальный файл с указанным именем файла и базовым типом.</summary>
+      <param name="fileName">Имя файла.</param>
+      <param name="baseType">Тип базового файла.</param>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.WebPageRazorHost.VirtualPath">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает виртуальный путь к файлу.</summary>
+      <returns>Виртуальный путь файла.</returns>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.WebRazorHostFactory">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает экземпляры файлов узла.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.#ctor">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.WebRazorHostFactory" />.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.ApplyConfigurationToHost(System.Web.WebPages.Razor.Configuration.RazorPagesSection,System.Web.WebPages.Razor.WebPageRazorHost)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Загружает описание службы из файла конфигурации и применяет его к узлу.</summary>
+      <param name="config">Конфигурация.</param>
+      <param name="host">Узел Razor веб-страницы.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateDefaultHost(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел по умолчанию с указанным виртуальным путем.</summary>
+      <returns>Узел по умолчанию.</returns>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateDefaultHost(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел по умолчанию с указанным виртуальным и физическим путем.</summary>
+      <returns>Узел по умолчанию.</returns>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+      <param name="physicalPath">Системный физический путь для файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateHost(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел Razor.</summary>
+      <returns>Узел Razor.</returns>
+      <param name="virtualPath">Виртуальный путь к конечному файлу.</param>
+      <param name="physicalPath">Физический путь к конечному файлу.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел из конфигурации.</summary>
+      <returns>Узел из конфигурации.</returns>
+      <param name="virtualPath">Виртуальный путь к конечному файлу.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел из конфигурации.</summary>
+      <returns>Узел из конфигурации.</returns>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+      <param name="physicalPath">Системный физический путь для файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел из конфигурации.</summary>
+      <returns>Узел из конфигурации.</returns>
+      <param name="config">Конфигурация.</param>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup,System.String,System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Создает узел из конфигурации.</summary>
+      <returns>Узел из конфигурации.</returns>
+      <param name="config">Конфигурация.</param>
+      <param name="virtualPath">Виртуальный путь файла.</param>
+      <param name="physicalPath">Системный физический путь для файла.</param>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.Configuration.HostSection">
+      <summary>Предоставляет поддержку системы конфигурации для раздела конфигурации host.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.Configuration.HostSection.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.Configuration.HostSection" />.</summary>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.Configuration.HostSection.FactoryType">
+      <summary>Возвращает или задает фабрику основных приложений.</summary>
+      <returns>Фабрика основных приложений.</returns>
+    </member>
+    <member name="F:System.Web.WebPages.Razor.Configuration.HostSection.SectionName">
+      <summary>Представляет имя раздела конфигурации основной среды Razor.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.Configuration.RazorPagesSection">
+      <summary>Предоставляет поддержку системы конфигурации для раздела конфигурации pages.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.Configuration.RazorPagesSection.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.Configuration.RazorPagesSection" />.</summary>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.Configuration.RazorPagesSection.Namespaces">
+      <summary>Возвращает или задает коллекцию пространств имен, добавляемых на веб-страницы текущего приложения.</summary>
+      <returns>Коллекция пространств имен.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.Configuration.RazorPagesSection.PageBaseType">
+      <summary>Получает или задает имя типа класса базового типа страницы.</summary>
+      <returns>Имя класса базового типа страницы.</returns>
+    </member>
+    <member name="F:System.Web.WebPages.Razor.Configuration.RazorPagesSection.SectionName">
+      <summary>Представляет имя раздела конфигурации раздела страниц Razor.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup">
+      <summary>Предоставляет поддержку системы конфигурации для раздела конфигурации system.web.webPages.razor.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup" />.</summary>
+    </member>
+    <member name="F:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup.GroupName">
+      <summary>Представляет имя раздела конфигурации веб-раздела Razor.Содержит статическую доступную только для чтения строку "system.web.webPages.razor".</summary>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup.Host">
+      <summary>Получает или задает значение host для группы разделов system.web.webPages.razor.</summary>
+      <returns>Значение.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup.Pages">
+      <summary>Получает или задает значение элемента pages для раздела system.web.webPages.razor.</summary>
+      <returns>Значение элемента pages.</returns>
+    </member>
+  </members>
+</doc>

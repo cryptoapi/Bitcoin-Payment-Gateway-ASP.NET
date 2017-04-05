@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.WebPages.Deployment</name>
+  </assembly>
+  <members>
+    <member name="T:System.Web.WebPages.Deployment.PreApplicationStartCode">
+      <summary>Предоставляет точку регистрации предварительного кода запуска для развертывания веб-страниц.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.PreApplicationStartCode.Start">
+      <summary>Регистрирует предварительный код запуска для развертывания веб-страниц.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.Deployment.WebPagesDeployment">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Предоставляет методы, используемые для получения сведений о разработке веб-приложения.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetAssemblyPath(System.Version)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает путь сборки для развертывания приложения Web Pages.</summary>
+      <returns>Путь сборки для развертывания приложения Web Pages.</returns>
+      <param name="version">Версия Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetExplicitWebPagesVersion(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает версию Web Pages по заданному пути к двоичным файлам.</summary>
+      <returns>Версия Web Pages.</returns>
+      <param name="path">Путь к двоичным файлам для приложения Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetIncompatibleDependencies(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает ссылки на сборки по заданному пути вне зависимости от версии Web Pages.</summary>
+      <returns>Словарь, содержащий ссылки на сборки приложения Web Pages и его версию.</returns>
+      <param name="appPath">Путь к приложению Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetMaxVersion">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает максимальный номер версии загруженных сборок Web Pages.</summary>
+      <returns>Максимальный номер версии загруженных сборок Web Pages.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersion(System.String)">
+      <summary>Получает версию Web Pages по заданному пути.</summary>
+      <returns>Версия Web Pages.</returns>
+      <param name="path">Путь к корневому каталогу приложения.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetVersionWithoutEnabledCheck(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Получает версию Web Pages с помощью параметров конфигурации по указанному пути.</summary>
+      <returns>Версия Web Pages.</returns>
+      <param name="path">Путь к параметрам приложения.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.GetWebPagesAssemblies">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Возвращает сборки для данного развертывания приложения Web Pages.</summary>
+      <returns>Список сборок для данного развертывания приложения Web Pages.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsEnabled(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Указывает, включено ли развертывание Web Pages.</summary>
+      <returns>Значение true, если развертывание Web Pages включено; в противном случае — значение false.</returns>
+      <param name="path">Путь к развертыванию Web Pages.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Deployment.WebPagesDeployment.IsExplicitlyDisabled(System.String)">
+      <summary>Этот тип или член поддерживает инфраструктуру .NET Framework и не предназначен для непосредственного использования из кода.Указывает, явно ли отключено развертывание Web Pages.</summary>
+      <returns>Значение true, если развертывание Web Pages явно отключено; в противном случае — значение false.</returns>
+      <param name="path">Путь к развертыванию Web Pages.</param>
+    </member>
+  </members>
+</doc>

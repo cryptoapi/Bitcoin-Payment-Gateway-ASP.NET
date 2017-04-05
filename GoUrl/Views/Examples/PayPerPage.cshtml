@@ -1,0 +1,45 @@
+﻿@using Gourl.GoUrlCore
+@model Gourl.Models.GoUrl.DisplayCryptoboxModel
+
+@{
+    ViewBag.Title = "Pay Per Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align='center'>
+    <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
+        9. Gourl <b>Pay-Per-View/Page</b> Example (@Model.coinName payments). Use it on your website.
+        <div style='float: right;'>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://github.com/cryptoapi/Payment-Gateway/blob/master/Examples/pay-per-page.php'>View Source</a>
+            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href=@Url.Action("PayPerDownloadMulti", "Examples" )@Request.Url.Query.ToString()>Multiple Crypto</a>
+            <a style='font-size:15px;color:#389ad8;margin-right:20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+        </div>
+    </div>
+    <br>
+    <h1>Example - Pay Per View - Video/Page Access for Unregistered Visitors</h1>
+    <h3>Your Website Visitors have to pay for access to your premium video/webpage(s)</h3>
+    <br>
+    Price: ~@Model.amountUSD US$ for @Model.period access
+    <br><br>
+    @if (@Model.is_paid)
+    {
+        <!-- Successful Cryptocoin Payment received -->
+        <!-- You can use the same payment gateway code for few your pages (section1) -->
+        <!-- Your Premium Page(s) Code -->
+
+        <h2 style='color: #339e2e;'>Cryptocoin Payment received<br>Successful Access to Premium Page (during @Model.period)
+        </h2>
+        <img alt='Cryptocoin Pay Per Page Access' border='0' src='https://gourl.io/images/example9_2.jpg'>
+    }
+    else
+    {
+
+        <!-- Awaiting Payment -->
+        <img alt='Awaiting Payment - Cryptocoin Pay Per Page Access' border='0' src='https://gourl.io/images/example9.jpg'>
+        <div style='font-size: 12px; margin: 30px 0 5px 370px'>Language: &#160; @Html.LanguageBox() </div>
+        @Html.Cryptobox(Model, true, 540, 230, new {style = "padding:3px 6px;margin:10px"})
+    }
+
+
+</div><br><br><br><br><br><br>
+<div style='position:absolute;left:0;'><a target="_blank" href="http://validator.w3.org/check?uri=@HttpContext.Current.Request.Url.AbsoluteUri"><img src="https://gourl.io/images/w3c.png" alt="Valid HTML 4.01 Transitional"></a></div>

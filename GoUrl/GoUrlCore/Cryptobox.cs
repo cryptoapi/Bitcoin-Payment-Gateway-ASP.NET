@@ -673,6 +673,7 @@ namespace Gourl.GoUrlCore
     public static class CryptoHelper
     {
         private static readonly string[] CryptoboxCoins = { "bitcoin", "litecoin", "dogecoin", "dash", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "vericoin", "peercoin", "paycoin", "monetaryunit", "swiscoin" };
+
         public static string cryptobox_selcoin(string[] coins, string defCoin = "")
         {
             if (coins.Length == 0)

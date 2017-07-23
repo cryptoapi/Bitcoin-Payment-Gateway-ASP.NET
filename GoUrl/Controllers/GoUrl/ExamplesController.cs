@@ -23,7 +23,7 @@ namespace Gourl.Controllers.GoUrl
                 private_key = "-your private key for Bitcoin box-",
                 webdev_key = "",
                 orderID = "your_product1_or_signuppage1_etc",
-                userID = "", 
+                userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
                 amountUSD = 2,
@@ -987,8 +987,55 @@ namespace Gourl.Controllers.GoUrl
         public ActionResult Payments()
         {
             GoUrlEntities Context = new GoUrlEntities();
-            IEnumerable<crypto_payments> payments = Context.crypto_payments.OrderByDescending(x=>x.recordCreated).Take(100);
+            IEnumerable<crypto_payments> payments = Context.crypto_payments.OrderByDescending(x => x.recordCreated).Take(100);
             return View(payments);
+        }
+
+        public ActionResult PayPerJson()
+        {
+            OptionsModel options = new OptionsModel()
+            {
+                public_key = "-your gourl.io public key for Bitcoin/Dogecoin/etc box-",
+                private_key = "-your gourl.io private key for Bitcoin/Dogecoin/etc box-",
+                webdev_key = "",
+                orderID = "invoice22",
+                userID = "",
+                userFormat = "COOKIE",
+                amount = 0,
+                amountUSD = (decimal)0.01,
+                period = "NOEXPIRY",
+                language = "en"
+            };
+            using (Cryptobox cryptobox = new Cryptobox(options))
+            {
+                ViewBag.JsonUrl = cryptobox.cryptobox_json_url();
+                ViewBag.Message = "";
+                DisplayCryptoboxModel model = cryptobox.GetDisplayCryptoboxModel();
+                if (HttpContext.Request.Form["cryptobox_refresh_"] != null)
+                {
+                    ViewBag.Message = "<div class='gourl_msg'>";
+                    if (cryptobox.is_paid())
+                    {
+                        ViewBag.Message += "<div style=\"margin:50px\" class=\"well\"><i class=\"fa fa-info-circle fa-3x fa-pull-left fa-border\" aria-hidden=\"true\"></i> " + Controls.localisation[model.language].MsgNotReceived.Replace("%coinName%", model.coinName)
+                        .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
+                        .Replace("%coinLabel%", model.coinLabel) + "</div>";
+                    }else if (cryptobox.is_processed())
+                    {
+                        ViewBag.Message += "<div style=\"margin:70px\" class=\"alert alert-success\" role=\"alert\"> " + (model.boxType == "paymentbox"
+                        ? Controls.localisation[model.language].MsgReceived
+                        : Controls.localisation[model.language].MsgReceived2)
+                        .Replace("%coinName%", model.coinName)
+                        .Replace("%coinLabel%", model.coinLabel)
+                        .Replace("%amountPaid%", model.amoutnPaid.ToString()) + "</div>";
+                        cryptobox.set_status_processed();
+                    }
+                    ViewBag.Message = "</div>";
+                }
+
+
+
+                return View(model);
+            }
         }
     }
 }

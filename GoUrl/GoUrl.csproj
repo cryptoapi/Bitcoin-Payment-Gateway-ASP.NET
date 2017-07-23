@@ -150,7 +150,9 @@
       <DependentUpon>GourlDb.edmx</DependentUpon>
     </Content>
     <Content Include="scripts\cryptobox.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -217,11 +219,15 @@
     <Content Include="Views\Examples\PayPerProductMulti.cshtml" />
     <Content Include="Views\Examples\PayPerRegistration.cshtml" />
     <Content Include="Views\Examples\PayPerRegistrationMulti.cshtml" />
+    <Content Include="Views\Examples\PayPerJson.cshtml" />
+    <None Include="Properties\PublishProfiles\Gourl.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup />

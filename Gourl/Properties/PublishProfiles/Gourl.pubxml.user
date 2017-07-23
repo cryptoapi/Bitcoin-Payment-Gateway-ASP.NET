@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Ihor\Documents\Gourl</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/GourlDb.mdf">
+      <publishTime>07/14/2017 23:47:38</publishTime>
+    </File>
+    <File Include="App_Data/GourlDb_log.ldf">
+      <publishTime>07/14/2017 23:47:38</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>09/11/2013 09:10:04</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>09/11/2013 09:10:04</publishTime>
+    </File>
+    <File Include="bin/Gourl.dll">
+      <publishTime>07/14/2017 23:50:54</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/23/2012 15:23:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Helpers.resources.dll">
+      <publishTime>01/28/2015 04:04:40</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Mvc.resources.dll">
+      <publishTime>01/28/2015 04:02:30</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Razor.resources.dll">
+      <publishTime>01/28/2015 04:02:40</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>01/28/2015 04:04:40</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>01/28/2015 04:04:40</publishTime>
+    </File>
+    <File Include="bin/ru/System.Web.Webpages.resources.dll">
+      <publishTime>01/28/2015 04:04:40</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>02/19/2015 20:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 03:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 03:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 03:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/28/2015 03:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/28/2015 03:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/28/2015 03:04:30</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/04/2017 02:20:23</publishTime>
+    </File>
+    <File Include="images/bitcoin.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/bitcoin2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/dash.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/dash2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/dogecoin.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/dogecoin2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/feathercoin.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/feathercoin2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/index.html">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/litecoin.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/litecoin2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/monetaryunit.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/monetaryunit2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/paycoin.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/paycoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/peercoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/peercoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/potcoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/potcoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/reddcoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/reddcoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/speedcoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/speedcoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/vericoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/vericoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/vertcoin.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="images/vertcoin2.png">
+      <publishTime>04/04/2017 02:23:55</publishTime>
+    </File>
+    <File Include="Models/GourlDb.edmx.diagram">
+      <publishTime>04/04/2017 02:23:45</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/04/2017 02:23:58</publishTime>
+    </File>
+    <File Include="scripts/cryptobox.js">
+      <publishTime>06/25/2017 05:32:42</publishTime>
+    </File>
+    <File Include="Views/Examples/Basic.cshtml">
+      <publishTime>06/13/2017 12:21:09</publishTime>
+    </File>
+    <File Include="Views/Examples/Index.cshtml">
+      <publishTime>07/05/2017 00:19:18</publishTime>
+    </File>
+    <File Include="Views/Examples/Payments.cshtml">
+      <publishTime>04/04/2017 02:30:11</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerDownload.cshtml">
+      <publishTime>04/04/2017 02:31:08</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerDownloadMulti.cshtml">
+      <publishTime>04/04/2017 02:31:35</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerJson.cshtml">
+      <publishTime>07/07/2017 00:35:04</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerMembership.cshtml">
+      <publishTime>04/04/2017 02:31:54</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerMembershipMulti.cshtml">
+      <publishTime>04/04/2017 02:32:02</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerPage.cshtml">
+      <publishTime>04/04/2017 02:32:08</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerPageMulti.cshtml">
+      <publishTime>04/04/2017 02:32:17</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerPost.cshtml">
+      <publishTime>04/04/2017 02:32:26</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerPostMulti.cshtml">
+      <publishTime>04/04/2017 02:32:33</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerProduct.cshtml">
+      <publishTime>04/04/2017 02:32:39</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerProductMulti.cshtml">
+      <publishTime>04/04/2017 02:32:46</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerRegistration.cshtml">
+      <publishTime>04/04/2017 02:32:51</publishTime>
+    </File>
+    <File Include="Views/Examples/PayPerRegistrationMulti.cshtml">
+      <publishTime>04/04/2017 02:32:57</publishTime>
+    </File>
+    <File Include="Views/Shared/Partial/_Cryptobox.cshtml">
+      <publishTime>04/04/2017 02:23:35</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>04/04/2017 02:29:41</publishTime>
+    </File>
+    <File Include="Views/Test/Index.cshtml">
+      <publishTime>06/13/2017 12:22:16</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>04/04/2017 02:20:23</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/14/2017 23:50:56</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -49,7 +49,8 @@ namespace Gourl.GoUrlCore
                 message_style = new { style = "display:inline-block;max-width:580px;padding:15px 20px;box-shadow:0 0 10px #aaa;-moz-box-shadow: 0 0 10px #aaa;margin:7px;font-size:13px;font-weight:normal;line-height:21px;font-family: Verdana, Arial, Helvetica, sans-serif;" };
             }
 
-            string hashResult = Calculator.md5(model.boxID + model.coinName + model.public_key + model.private_key + model.webdev_key + model.amount.ToString(CultureInfo.InvariantCulture) + model.period + model.amountUSD.ToString(CultureInfo.InvariantCulture) + model.language + model.amount.ToString(CultureInfo.InvariantCulture) + model.iframeID + model.amountUSD.ToString(CultureInfo.InvariantCulture) + model.userID + model.userFormat + model.orderID + width + height);
+            //string hashResult = Calculator.md5(model.boxID + model.coinName + model.public_key + model.private_key + model.webdev_key + model.amount.ToString(CultureInfo.InvariantCulture) + model.period + model.amountUSD.ToString(CultureInfo.InvariantCulture) + model.language + model.amount.ToString(CultureInfo.InvariantCulture) + model.iframeID + model.amountUSD.ToString(CultureInfo.InvariantCulture) + model.userID + model.userFormat + model.orderID + width + height);
+            string hashResult = Calculator.cryptobox_hash(model, false, width, height);
             string val = Calculator.md5(model.iframeID + model.private_key + model.userID);
             string result = "";
 
@@ -81,7 +82,7 @@ namespace Gourl.GoUrlCore
                         ? localisation[model.language].MsgReceived
                         : localisation[model.language].MsgReceived2)
                         .Replace("%coinName%", model.coinName)
-                        .Replace("%coinLabel%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
+                        .Replace("%coinLabel%", model.coinLabel)
                         .Replace("%amountPaid%", model.amoutnPaid.ToString());
 
                     div0.InnerHtml = spanBuilder.ToString();
@@ -93,7 +94,7 @@ namespace Gourl.GoUrlCore
                     spanBuilder.InnerHtml = localisation[model.language].MsgNotReceived
                         .Replace("%coinName%", model.coinName)
                         .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
-                        .Replace("%coinLabel%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s");
+                        .Replace("%coinLabel%", model.coinLabel);
 
                     TagBuilder scrptBuilder = new TagBuilder("script");
                     scrptBuilder.MergeAttribute("type", "text/javascript");
@@ -156,7 +157,7 @@ namespace Gourl.GoUrlCore
                 buttonBuilder.InnerHtml = localisation[model.language].Button
                         .Replace("%coinName%", model.coinName)
                         .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
-                        .Replace("%coinLabel%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s") +
+                        .Replace("%coinLabel%", model.coinLabel) +
                         (model.language != "ar" ? " &#187;" : "") + " &#160;";
 
                 div3.InnerHtml = buttonBuilder.ToString();
@@ -176,47 +177,59 @@ namespace Gourl.GoUrlCore
         /// <param name="anchor"></param>
         /// <returns></returns>
         public static MvcHtmlString LanguageBox(this HtmlHelper helper, string defaultLanguage = "en",
-            string anchor = "gourlcryptolang")
+            string anchor = "gourlcryptolang", bool select_list = true)
         {
             defaultLanguage = defaultLanguage.ToLower();
             string id = "gourlcryptolang";
-            string lan = "en";
+            string lan = CryptoHelper.cryptobox_sellanguage(defaultLanguage);
             var query = HttpUtility.ParseQueryString(HttpContext.Current.Request.Url.Query);
             if (HttpContext.Current.Request.QueryString[id] != null &&
                 HttpContext.Current.Request.QueryString[id] != "" &&
                 localisation.ContainsKey(HttpContext.Current.Request.QueryString[id]))
             {
-                lan = HttpContext.Current.Request.QueryString[id];
-                HttpContext.Current.Response.Cookies.Add(new HttpCookie(id, lan) { Expires = DateTime.Now + TimeSpan.FromDays(7) });
                 query.Remove(id);
             }
-            else if (HttpContext.Current.Request.Cookies[id] != null &&
-                      HttpContext.Current.Request.Cookies[id].Value != "" &&
-                      localisation.ContainsKey(HttpContext.Current.Request.Cookies[id].Value))
-            {
-                lan = HttpContext.Current.Request.Cookies[id].Value;
-            }
-            else if (localisation.ContainsKey(defaultLanguage))
-            {
-                lan = defaultLanguage;
-            }
-            string url = HttpContext.Current.Request.Url.AbsoluteUri.Split(new[] { '?' })[0];
-            TagBuilder selectBuilder = new TagBuilder("select");
-            selectBuilder.MergeAttribute("name", id);
-            selectBuilder.MergeAttribute("id", id);
 
-            selectBuilder.MergeAttribute("onchange", "window.open(\"" + url + "?" +
-                query.ToString() +
-                (query.Count > 0 ? "&" : "") + id +
-                "=\"+this.options[this.selectedIndex].value+\"#" + anchor + "\",\"_self\")");
-            foreach (string key in localisation.Keys)
+            string url = HttpContext.Current.Request.Url.AbsoluteUri.Split(new[] { '?' })[0];
+            TagBuilder selectBuilder;
+            if (select_list)
             {
-                TagBuilder optionsBuilder = new TagBuilder("option");
-                if (key == lan)
-                    optionsBuilder.MergeAttribute("selected", "selected");
-                optionsBuilder.MergeAttribute("value", key);
-                optionsBuilder.InnerHtml = localisation[key].Name;
-                selectBuilder.InnerHtml += optionsBuilder.ToString();
+                selectBuilder = new TagBuilder("select");
+                selectBuilder.MergeAttribute("name", id);
+                selectBuilder.MergeAttribute("id", id);
+
+                selectBuilder.MergeAttribute("onchange", "window.open(\"" + url + "?" +
+                                                         query.ToString() +
+                                                         (query.Count > 0 ? "&" : "") + id +
+                                                         "=\"+this.options[this.selectedIndex].value+\"#" + anchor +
+                                                         "\",\"_self\")");
+                foreach (string key in localisation.Keys)
+                {
+                    TagBuilder optionsBuilder = new TagBuilder("option");
+                    if (key == lan)
+                        optionsBuilder.MergeAttribute("selected", "selected");
+                    optionsBuilder.MergeAttribute("value", key);
+                    optionsBuilder.InnerHtml = localisation[key].Name;
+                    selectBuilder.InnerHtml += optionsBuilder.ToString();
+                }
+            }
+            else
+            {
+                selectBuilder = new TagBuilder("ul");
+                selectBuilder.MergeAttribute("class", "dropdown-menu");
+                foreach (string key in localisation.Keys)
+                {
+                    TagBuilder liBuilder = new TagBuilder("li");
+                    if(key == lan)
+                        liBuilder.MergeAttribute("class", "active");
+                    TagBuilder aBuilder = new TagBuilder("a");
+                    aBuilder.MergeAttribute("href", url + "?" +
+                                                         query.ToString() +
+                                                         (query.Count > 0 ? "&" : "") + id + "=" + key + "#" + anchor);
+                    aBuilder.InnerHtml = localisation[key].Name;
+                    liBuilder.InnerHtml = aBuilder.ToString();
+                    selectBuilder.InnerHtml += liBuilder.ToString();
+                }
             }
 
             return MvcHtmlString.Create(selectBuilder.ToString());
@@ -260,24 +273,11 @@ namespace Gourl.GoUrlCore
                 query.Remove("gourlcryptocoin");
             }
 
-            string url = HttpContext.Current.Request.Url.AbsoluteUri.Split(new[] {'?'})[0] +
+            string url = HttpContext.Current.Request.Url.AbsoluteUri.Split(new[] { '?' })[0] +
                          "?" + query.ToString() + (query.Count > 0 ? "&" : "") + "gourlcryptocoin=";
 
-            string id = "gourlcryptolang";
-            string lan = defLang;
-            if (HttpContext.Current.Request.QueryString[id] != null &&
-                HttpContext.Current.Request.QueryString[id] != "" &&
-                localisation.ContainsKey(HttpContext.Current.Request.QueryString[id]))
-            {
-                lan = HttpContext.Current.Request.QueryString[id];
-            }
-            else if (HttpContext.Current.Request.Cookies[id] != null &&
-                      HttpContext.Current.Request.Cookies[id].Value != "" &&
-                      localisation.ContainsKey(HttpContext.Current.Request.Cookies[id].Value))
-            {
-                lan = HttpContext.Current.Request.Cookies[id].Value;
-            }
-            id = "gourlcryptocoins";
+            string lan = CryptoHelper.cryptobox_sellanguage(defLang);
+            string id = "gourlcryptocoins";
 
             TagBuilder divBuilder = new TagBuilder("div");
             divBuilder.MergeAttribute("id", id);

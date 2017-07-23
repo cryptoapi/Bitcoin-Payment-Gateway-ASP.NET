@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Helpers;
@@ -21,6 +23,7 @@ namespace Gourl.GoUrlCore
 
         private OptionsModel options;
         private GoUrlEntities Context = new GoUrlEntities();
+        private bool already_checked = false;
 
         // Internal Variables
         private int boxID = 0;        // cryptobox id, the same as on gourl.io member page. For each your cryptocoin payment boxes you will have unique public / private keys 
@@ -105,23 +108,12 @@ namespace Gourl.GoUrlCore
                 this.options.period = this.options.period.Remove(this.options.period.Length - 1);
             }
 
-            string id = "gourlcryptolang";
-            this.options.language = this.options.language.ToLower();
             string[] langArr = { "en", "es", "fr", "de", "nl", "it", "ru", "pl", "pt", "fa", "ko", "ja", "id", "tr", "ar", "cn", "zh", "hi" };
-            if (HttpContext.Current.Request[id] != null && HttpContext.Current.Request[id] != "" && langArr.Contains(HttpContext.Current.Request[id]))
-            {
-                this.options.language = HttpContext.Current.Request[id];
-            }
-            else if (HttpContext.Current.Request.Cookies[id] != null &&
-                     HttpContext.Current.Request.Cookies[id].Value != String.Empty &&
-                     langArr.Contains(HttpContext.Current.Request.Cookies[id].Value))
-            {
-                this.options.language = HttpContext.Current.Request.Cookies[id].Value;
-            }
-            else
+            if (!langArr.Contains(this.options.language))
             {
                 this.options.language = "en";
             }
+            this.options.language = CryptoHelper.cryptobox_sellanguage(this.options.language);
 
             if (this.options.iframeID == "cryptobox_live_" ||
                 (this.options.iframeID != "" && !Regex.IsMatch(this.options.iframeID, "[a-zA-Z0-9]+")))
@@ -191,12 +183,7 @@ namespace Gourl.GoUrlCore
                             string v = (d.ToString() + "__" +
                                        Calculator.md5(rand.Next().ToString() + rand.Next().ToString() +
                                                       rand.Next().ToString()).Substring(0, 10)).Trim();
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(this.cookieName, v)
-                            /*{
-                                Expires = DateTime.MaxValue,
-                                Path = "/",
-                                Domain = s
-                            }*/);
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie(this.cookieName, v));
                             this.options.userID = v;
                         }
                         break;
@@ -270,6 +257,90 @@ namespace Gourl.GoUrlCore
             obj.amoutnPaid = this.amountPaid;
 
             return obj;
+        }
+
+        /// <summary>
+        /// Function cryptobox_json_url()
+        ///
+        /// It generates url with your paramenters to gourl.io payment gateway.
+        /// Using this url you can get bitcoin/altcoin payment box values in JSON format and use it on html page with Jquery/Ajax.
+
+        /// See instruction https://gourl.io/bitcoin-payment-gateway-api.html#p8
+        ///  
+        /// JSON Values Example -
+        /// Payment not received - https://coins.gourl.io/b/20/c/Bitcoin/p/20AAvZCcgBitcoin77BTCPUB0xyyeKkxMUmeTJRWj7IZrbJ0oL/a/0/au/2.21/pe/NOEXPIRY/l/en/o/invoice22/u/83412313__3bccb54769/us/COOKIE/j/1/d/ODIuMTEuOTQuMTIx/h/e889b9a07493ee96a479e471a892ae2e   
+        /// Payment received successfully - https://coins.gourl.io/b/20/c/Bitcoin/p/20AAvZCcgBitcoin77BTCPUB0xyyeKkxMUmeTJRWj7IZrbJ0oL/a/0/au/0.1/pe/NOEXPIRY/l/en/o/invoice1/u/demo/us/MANUAL/j/1/d/ODIuMTEuOTQuMTIx/h/ac7733d264421c8410a218548b2d2a2a
+        /// 
+        /// Alternatively, you can receive JSON values through php curl on server side - function get_json_values() and use it in your php/other files without using javascript and jquery/ajax.
+
+        ///
+        /// By default the user sees bitcoin payment box as iframe in html format - function display_cryptobox().
+
+        /// JSON data will allow you to easily customise your bitcoin payment boxes.For example, you can display payment amount and
+        /// bitcoin payment address with your own text, you can also accept payments in android/windows and other applications.
+        /// You get an array of values - payment amount, bitcoin address, text; and can place them in any position on your webpage/application.
+        /// </summary>
+        /// <returns></returns>
+        public string cryptobox_json_url()
+        {
+            string ip = HttpContext.Current.Request.UserHostAddress;
+            string hash = Calculator.cryptobox_hash(GetDisplayCryptoboxModel(), true);
+
+            string url = String.Join("/", "https://coins.gourl.io",
+                "b", boxID.ToString(),
+                "c", coinName,
+                "p", this.options.public_key,
+                "a", this.options.amount.ToString(),
+                "au", this.options.amountUSD.ToString(),
+                "pe", this.options.period.Replace(" ", "_"),
+                "l", this.options.language,
+                "o", this.options.orderID,
+                "u", this.options.userID,
+                "us", this.options.userFormat,
+                "j", "1",
+                "d", Convert.ToBase64String(Encoding.UTF8.GetBytes(ip)),
+                "h", hash);
+            if (this.options.webdev_key != "")
+            {
+                url += "/" + this.options.webdev_key;
+            }
+            Random rand = new Random();
+            url += "/z/" + rand.Next(0, 10000000);
+            return url; 
+        }
+
+        public dynamic get_json_values()
+        {
+            string url = cryptobox_json_url();
+            HttpClient client = new HttpClient();
+            client.Timeout = TimeSpan.FromSeconds(20);
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            HttpContent responseContent = response.Content;
+            using (var reader = new StreamReader(responseContent.ReadAsStreamAsync().Result))
+            {
+                IDictionary<string, object> res = Json.Decode(reader.ReadToEndAsync().Result);
+                if (res == null)
+                {
+                    return null;
+                }
+                bool f = false;
+                IDictionary<string, object> arr = res;
+                if (arr["data_hash"] != null)
+                {
+                    arr.Remove("data_hash");
+                    if (arr["data_hash"].ToString() ==
+                        Calculator.hash512(this.options.private_key + Json.Encode(arr) + this.options.private_key)
+                            .ToLower())
+                    {
+                        f = true;
+                    }
+                }
+                if (!f)
+                    return null;
+                    
+                return res;
+            }
         }
 
         /// <summary>
@@ -430,6 +501,7 @@ namespace Gourl.GoUrlCore
 
         private bool check_payment(bool remotedb = false)
         {
+
             TimeSpan diff = TimeSpan.Zero;
             paymentID = 0;
             crypto_payments obj =
@@ -453,11 +525,12 @@ namespace Gourl.GoUrlCore
             {
                 remotedb = true;
             }
-            if ((obj == null && remotedb) ||
-                (obj != null && !this.confirmed && (diff > (this.coinLabel == "BTC" ? TimeSpan.FromMinutes(35) : TimeSpan.FromMinutes(12)))))
-            // if diff < 0 - user have incorrect time on local computer
+            
+            if (!this.already_checked &&
+                ((obj == null && remotedb) || (obj != null && !this.confirmed && (diff > TimeSpan.FromMinutes(10)))))
             {
                 check_payment_live();
+                this.already_checked = true;
             }
             return true;
         }
@@ -568,7 +641,7 @@ namespace Gourl.GoUrlCore
 
                     if (box_status == "cryptobox_newrecord" || box_status == "cryptobox_updated")
                     {
-                        
+
                         NewPayment.Main(this.paymentID ?? 0, new IPNModel()
                         {
                             addr = res["addr"],
@@ -576,7 +649,7 @@ namespace Gourl.GoUrlCore
                             amountusd = decimal.Parse(res["amountusd"], CultureInfo.InvariantCulture),
                             confirmed = byte.Parse(res["confirmed"]),
                             box = Int32.Parse(res["box"]),
-                            private_key_hash = Calculator.md512(res["private_key"]),   
+                            private_key_hash = Calculator.md512(res["private_key"]),
                             user = res["user"],
                             order = res["order"],
                             tx = res["tx"],
@@ -673,7 +746,6 @@ namespace Gourl.GoUrlCore
     public static class CryptoHelper
     {
         private static readonly string[] CryptoboxCoins = { "bitcoin", "litecoin", "dogecoin", "dash", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "vericoin", "peercoin", "paycoin", "monetaryunit", "swiscoin" };
-
         public static string cryptobox_selcoin(string[] coins, string defCoin = "")
         {
             if (coins.Length == 0)
@@ -749,6 +821,7 @@ namespace Gourl.GoUrlCore
                 }
                 catch (Exception)
                 {
+                    return -1;
                 }
 
             }
@@ -1015,6 +1088,27 @@ namespace Gourl.GoUrlCore
             };
 
             return arr[countryId.ToUpper()];
+        }
+
+        public static string cryptobox_sellanguage(string language = "en")
+        {
+            string lan = "en";
+            string id = "gourlcryptolang";
+            language = language.ToLower();
+            string[] langArr = { "en", "es", "fr", "de", "nl", "it", "ru", "pl", "pt", "fa", "ko", "ja", "id", "tr", "ar", "cn", "zh", "hi" };
+            
+            if (HttpContext.Current.Request.QueryString[id] != null && HttpContext.Current.Request.QueryString[id] != "" && langArr.Contains(HttpContext.Current.Request.QueryString[id]))
+            {
+                lan = HttpContext.Current.Request.QueryString[id];
+                HttpContext.Current.Response.Cookies.Add(new HttpCookie(id, lan) { Expires = DateTime.Now + TimeSpan.FromDays(7) });
+            }
+            else if (HttpContext.Current.Request.Cookies[id] != null &&
+                     HttpContext.Current.Request.Cookies[id].Value != String.Empty &&
+                     langArr.Contains(HttpContext.Current.Request.Cookies[id].Value))
+            {
+                lan = HttpContext.Current.Request.Cookies[id].Value;
+            }
+            return lan;
         }
     }
 

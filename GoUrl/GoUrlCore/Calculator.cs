@@ -1,6 +1,9 @@
 using System;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
+using Gourl.Models.GoUrl;
 
 namespace Gourl.GoUrlCore
 {
@@ -132,13 +135,71 @@ namespace Gourl.GoUrlCore
             }
             if (period.Contains("WEEK"))
             {
-                return TimeSpan.FromDays(double.Parse(period.Split(' ')[0])*7);
+                return TimeSpan.FromDays(double.Parse(period.Split(' ')[0]) * 7);
             }
             if (period.Contains("MONTH"))
             {
-                return TimeSpan.FromDays(double.Parse(period.Split(' ')[0])*30);
+                return TimeSpan.FromDays(double.Parse(period.Split(' ')[0]) * 30);
             }
             return TimeSpan.MaxValue;
+        }
+
+        public static string cryptobox_hash(DisplayCryptoboxModel model, bool json = false, int width = 0, int height = 0)
+        {
+            string hash_str = "";
+            if (json)
+            {
+                hash_str = string.Join("|",
+                    model.boxID,
+                    model.coinName,
+                    model.public_key,
+                    model.private_key,
+                    model.webdev_key,
+                    model.amount.ToString("0.####", CultureInfo.InvariantCulture),
+                    model.amountUSD.ToString("0.####", CultureInfo.InvariantCulture),
+                    model.period,
+                    model.language,
+                    model.orderID,
+                    model.userID,
+                    model.userFormat,
+                    HttpContext.Current.Request.UserHostAddress);
+            }
+            else
+            {
+                hash_str = string.Join("|",
+                    model.boxID,
+                    model.coinName,
+                    model.public_key,
+                    model.private_key,
+                    model.webdev_key,
+                    model.amount.ToString("0.####", CultureInfo.InvariantCulture),
+                    model.amountUSD.ToString("0.####", CultureInfo.InvariantCulture),
+                    model.period,
+                    model.language,
+                    model.orderID,
+                    model.userID,
+                    model.userFormat,
+                    model.iframeID,
+                    width,
+                    height);
+            }
+            return Calculator.md5(hash_str);
+        }
+
+        public static string hash512(string s)
+        {
+            string hash = string.Empty;
+            using (SHA512 sha512 = new SHA512Managed())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(s);
+                byte[] res = sha512.ComputeHash(bytes);
+                for (int i = 0; i < res.Length; i++)
+                {
+                    hash += res[i].ToString("X2");
+                }
+            }
+            
+            return hash;
         }
     }
 }

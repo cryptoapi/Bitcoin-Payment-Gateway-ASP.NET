@@ -8,7 +8,7 @@ namespace Gourl.GoUrlCore
         /// <summary>
         /// en - English, es - Spanish, fr - French, de - German, nl - Dutch, it - Italian, ru - Russian, pl - Polish, pt - Portuguese, fa - Persian, ko - Korean, ja - Japanese, id - Indonesian, tr - Turkish, ar - Arabic, cn - Simplified Chinese, zh - Traditional Chinese, hi - Hindi
         /// </summary>
-        private static Dictionary<string, LocalisationModel> localisation = new Dictionary<string, LocalisationModel>()
+        public static Dictionary<string, LocalisationModel> localisation = new Dictionary<string, LocalisationModel>()
         {
             { "en", new LocalisationModel() {Name = "English",
                 Button = "Click Here if you have already sent %coinNames%",

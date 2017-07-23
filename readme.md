@@ -2,7 +2,7 @@
 GoUrl.io Bitcoin/Altcoin Payment Gateway API ASP .NET C#
 -----------------------------------------
 
-Version 1.0.5
+Version 1.0.7
 
 **Accept Bitcoin, Litecoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, Paycoin, MonetaryUnit, Swiscoin Payments Online on your ASP.NET C# website**
 
@@ -94,6 +94,7 @@ Our Payment Gateway with Instant Checkout allows you to easily organise your web
 * No Monthly Fee, Transaction Fee from 0%
 * No ID Required, No Bank Account Needed
 * Get payments straight to your bitcoin/altcoin wallets and convert to [USD/EUR/etc](https://gourl.io/#usd) later
+* [Custom Payment Box](https://gourl.io/lib/examples/json.php) - json format; customise your bitcoin payment box with your own text / logo
 * [Pay-Per-Product](http://gourl.io/lib/examples/pay-per-product-multi.php) - sell your products for bitcoin, dogecoin, litecoin, etc. online on your website. It is easy!
 * [Pay-Per-Download](http://gourl.io/lib/examples/pay-per-download-multi.php) -  make money on file downloads/other digital content from your website online
 * [Pay-Per-Post](http://gourl.io/lib/examples/pay-per-post-multi.php) - get separate payments for each post/article published on your website
@@ -164,9 +165,8 @@ Payment API List :
 
 * [Bitcoin Payment API](https://gourl.io/bitcoin-payment-gateway-api.html)
 * [Litecoin Payment API](https://gourl.io/litecoin-payment-gateway-api.html)
-* [Paycoin Payment API](https://gourl.io/paycoin-payment-gateway-api.html)
-* [Dogecoin Payment API](https://gourl.io/dogecoin-payment-gateway-api.html)
 * [Dash Payment API](https://gourl.io/dash-payment-gateway-api.html)
+* [Dogecoin Payment API](https://gourl.io/dogecoin-payment-gateway-api.html)
 * [Speedcoin Payment API](https://gourl.io/speedcoin-payment-gateway-api.html)
 * [Reddcoin Payment API](https://gourl.io/reddcoin-payment-gateway-api.html)
 * [Potcoin Payment API](https://gourl.io/potcoin-payment-gateway-api.html)
@@ -174,6 +174,7 @@ Payment API List :
 * [Vertcoin Payment API](https://gourl.io/vertcoin-payment-gateway-api.html)
 * [Vericoin Payment API](https://gourl.io/vericoin-payment-gateway-api.html)
 * [MonetaryUnit Payment API](https://gourl.io/monetaryunit-payment-gateway-api.html)
+* [Paycoin Payment API](https://gourl.io/paycoin-payment-gateway-api.html)
 * [Peercoin Payment API](https://gourl.io/peercoin-payment-gateway-api.html)
 * [Swiscoin Payment API](https://gourl.io/swiscoin-payment-gateway-api.html)
 
@@ -190,5 +191,6 @@ PHP Examples / Live Demo :
 * **Pay-Per-Registration**: Example7 - [multiple crypto](http://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](http://gourl.io/lib/examples/pay-per-registration.php)
 * **Pay-Per-Page-Access**: Example19 - [multiple crypto](http://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](http://gourl.io/lib/examples/pay-per-page.php)
 * **Pay-Per-Membership**: Example11 - [multiple crypto](http://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](http://gourl.io/lib/examples/pay-per-membership.php)
+* **Your Custom Payment Box** Example13 - [bitcoin json / jquery](https://gourl.io/lib/examples/json.php)
       
  

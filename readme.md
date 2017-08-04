@@ -4,7 +4,7 @@ GoUrl.io Bitcoin/Altcoin Payment Gateway API ASP .NET C#
 
 Version 1.0.7
 
-**Accept Bitcoin, Litecoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, Paycoin, MonetaryUnit, Swiscoin Payments Online on your ASP.NET C# website**
+**Accept Bitcoin, Bitcoin Cash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit Payments Online on your website**
 
 
 Copyright &copy; 2014-2017 [Delta Consultants](https://gourl.io)
@@ -95,17 +95,17 @@ Our Payment Gateway with Instant Checkout allows you to easily organise your web
 * No ID Required, No Bank Account Needed
 * Get payments straight to your bitcoin/altcoin wallets and convert to [USD/EUR/etc](https://gourl.io/#usd) later
 * [Custom Payment Box](https://gourl.io/lib/examples/json.php) - json format; customise your bitcoin payment box with your own text / logo
-* [Pay-Per-Product](http://gourl.io/lib/examples/pay-per-product-multi.php) - sell your products for bitcoin, dogecoin, litecoin, etc. online on your website. It is easy!
-* [Pay-Per-Download](http://gourl.io/lib/examples/pay-per-download-multi.php) -  make money on file downloads/other digital content from your website online
-* [Pay-Per-Post](http://gourl.io/lib/examples/pay-per-post-multi.php) - get separate payments for each post/article published on your website
-* [Pay-Per-Registration](http://gourl.io/lib/examples/pay-per-registration-multi.php) - earn money on user registration on your website; stop spam
-* [Pay-Per-Page-Access](http://gourl.io/lib/examples/pay-per-page-multi.php) - sell paid access to selected web page(es) to unregistered visitors online
-* [Pay-Per-Membership](http://gourl.io/lib/examples/pay-per-membership-multi.php) - sell monthly/daily membership of your website to members online
+* [Pay-Per-Product](https://gourl.io/lib/examples/pay-per-product-multi.php) - sell your products for bitcoin, bitcoin cash, litecoin, etc. online on your website. It is easy!
+* [Pay-Per-Download](https://gourl.io/lib/examples/pay-per-download-multi.php) -  make money on file downloads/other digital content from your website online
+* [Pay-Per-Post](https://gourl.io/lib/examples/pay-per-post-multi.php) - get separate payments for each post/article published on your website
+* [Pay-Per-Registration](https://gourl.io/lib/examples/pay-per-registration-multi.php) - earn money on user registration on your website; stop spam
+* [Pay-Per-Page-Access](https://gourl.io/lib/examples/pay-per-page-multi.php) - sell paid access to selected web page(es) to unregistered visitors online
+* [Pay-Per-Membership](https://gourl.io/lib/examples/pay-per-membership-multi.php) - sell monthly/daily membership of your website to members online
 * Set your own Prices in USD. It will automatically convert usd to cryptocoins using Live [exchange rates](https://poloniex.com/)
 * Direct Integration on your website (iframe), no external payment pages opens (as other payment gateways offer)
 * User will see successful payment result typically within 5 seconds after the payment has been sent
 * Your website users and visitors will see GoUrl payment box on your website in their own native languages
-* Our Payment Gateway supports the following interface languages: [English](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang), [Spanish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=es#gourlcryptolang), [French](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=fr#gourlcryptolang), [German](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=de#gourlcryptolang), [Dutch](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=nl#gourlcryptolang), [Italian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=it#gourlcryptolang), [Russian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ru#gourlcryptolang), [Polish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=pl#gourlcryptolang), [Portuguese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=pt#gourlcryptolang), [Persian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=fa#gourlcryptolang), [Korean](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ko#gourlcryptolang), [Japanese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ja#gourlcryptolang), [Indonesian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=id#gourlcryptolang), [Turkish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=tr#gourlcryptolang), [Arabic](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ar#gourlcryptolang), [Simplified Chinese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=cn#gourlcryptolang), [Traditional Chinese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=zh#gourlcryptolang), [Hindi](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=hi#gourlcryptolang). We can also add any new language to payment system on [request](https://gourl.io/bitcoin-api-asp.html#lan)
+* Our Payment Gateway supports the following interface languages: [English](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang), [Spanish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=es#gourlcryptolang), [French](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=fr#gourlcryptolang), [German](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=de#gourlcryptolang), [Dutch](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=nl#gourlcryptolang), [Italian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=it#gourlcryptolang), [Russian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ru#gourlcryptolang), [Polish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=pl#gourlcryptolang), [Portuguese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=pt#gourlcryptolang), [Persian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=fa#gourlcryptolang), [Korean](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ko#gourlcryptolang), [Japanese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ja#gourlcryptolang), [Indonesian](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=id#gourlcryptolang), [Turkish](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=tr#gourlcryptolang), [Arabic](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=ar#gourlcryptolang), [Simplified Chinese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=cn#gourlcryptolang), [Traditional Chinese](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=zh#gourlcryptolang), [Hindi](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=hi#gourlcryptolang). We can also add any new language to payment system on [request](https://gourl.io/api-php.html#lan)
 * [Affiliate Program for Web Developers](https://gourl.io/affiliates.html) - Earn 0.50% Lifetime from each cryptocoin payment made by users through GoUrl Payment Gateway
 * Global, Anonymous, Secure, Zero Risk, No Chargebacks, No visitor registration is needed.
 * GoUrl Bitcoin Official [Wordpress Plugin](https://gourl.io/bitcoin-wordpress-plugin.html) - easy to use on your website
@@ -139,7 +139,7 @@ How It Works
 You can use the following steps to sell your products on your website for cryptocoins if you wish to and can automatically convert them to USD
 
 * [Install](https://gourl.io/bitcoin-api-asp.html#installation) GoUrl crypto Payment Box on your website and dynamically configure order id, currency, amount to pay, etc. Or use [Monetiser Online](https://gourl.io/view/newurl/Cryptocoin_Monetiser_Make_Money_Online.html) if you don't have your own website.
-* You can accept payments in Bitcoins only or you can accept other coins - Dogecoin, Litecoin, Reddcoin, etc also. See [Demo1](http://gourl.io/lib/examples/pay-per-product-multi.php) (multiple coins) or [Demo2](http://gourl.io/lib/examples/pay-per-membership.php?gourlcryptocoin=bitcoin) (Bitcoin only)
+* You can accept payments in Bitcoins only or you can accept other coins - Bitcoin Cash, Dogecoin, Litecoin, Dash, etc also. See [Demo1](https://gourl.io/lib/examples/pay-per-product-multi.php) (multiple coins) or [Demo2](https://gourl.io/lib/examples/pay-per-membership.php?gourlcryptocoin=bitcoin) (Bitcoin only)
 * When you [setup](https://gourl.io/editrecord/coin_boxes/0) Cryptocoin Payment Box, you can enter the [original amount](https://gourl.io/images/instruction-config2.png) in USD or in cryptocoins. The USD amount will be automatically converted to cryptocoin amount using today's LIVE cryptocurrency exchange rates (updated every 30 minutes) and the cryptocoin amount will be displayed in the payment box. For example, if you entered 20 USD, it will display 0.059 BTC in the payment box.
 * You will need to create an account on [Poloniex.com](https://poloniex.com/) or on [Bitstamp.net](https://www.bitstamp.net/) (trading platforms)
 * [Setup](https://gourl.io/images/instruction-config3.png) so that all your received payments are automatically forwarded from your GoUrl.io account to your account on Poloniex / Bitstamp (enter your Poloniex/Bitstamp coin wallet address in gourl [payment box settings](https://gourl.io/images/instruction-config3.png)). And use the "autosell" feature (auto trade your cryptocoins to USD) on Poloniex/Bitstamp.
@@ -164,6 +164,7 @@ Payment API List :
 ---------------------
 
 * [Bitcoin Payment API](https://gourl.io/bitcoin-payment-gateway-api.html)
+* [Bitcoin Cash Payment API](https://gourl.io/bitcoincash-payment-gateway-api.html)
 * [Litecoin Payment API](https://gourl.io/litecoin-payment-gateway-api.html)
 * [Dash Payment API](https://gourl.io/dash-payment-gateway-api.html)
 * [Dogecoin Payment API](https://gourl.io/dogecoin-payment-gateway-api.html)
@@ -172,11 +173,8 @@ Payment API List :
 * [Potcoin Payment API](https://gourl.io/potcoin-payment-gateway-api.html)
 * [Feathercoin Payment API](https://gourl.io/feathercoin-payment-gateway-api.html)
 * [Vertcoin Payment API](https://gourl.io/vertcoin-payment-gateway-api.html)
-* [Vericoin Payment API](https://gourl.io/vericoin-payment-gateway-api.html)
 * [MonetaryUnit Payment API](https://gourl.io/monetaryunit-payment-gateway-api.html)
-* [Paycoin Payment API](https://gourl.io/paycoin-payment-gateway-api.html)
 * [Peercoin Payment API](https://gourl.io/peercoin-payment-gateway-api.html)
-* [Swiscoin Payment API](https://gourl.io/swiscoin-payment-gateway-api.html)
 
 
 .
@@ -185,12 +183,12 @@ Payment API List :
 PHP Examples / Live Demo :
 -----------------------------
 
-* **Pay-Per-Product**: Example1 - [multiple crypto](http://gourl.io/lib/examples/pay-per-product-multi.php), Example2 - [bitcoin](http://gourl.io/lib/examples/pay-per-product.php)
-* **Pay-Per-Download**: Example3 - [multiple crypto](http://gourl.io/lib/examples/pay-per-download-multi.php), Example4 - [bitcoin](http://gourl.io/lib/examples/pay-per-download.php)
-* **Pay-Per-Post**: Example5 - [multiple crypto](http://gourl.io/lib/examples/pay-per-post-multi.php), Example6 - [bitcoin](http://gourl.io/lib/examples/pay-per-post.php)
-* **Pay-Per-Registration**: Example7 - [multiple crypto](http://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](http://gourl.io/lib/examples/pay-per-registration.php)
-* **Pay-Per-Page-Access**: Example19 - [multiple crypto](http://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](http://gourl.io/lib/examples/pay-per-page.php)
-* **Pay-Per-Membership**: Example11 - [multiple crypto](http://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](http://gourl.io/lib/examples/pay-per-membership.php)
+* **Pay-Per-Product**: Example1 - [multiple crypto](https://gourl.io/lib/examples/pay-per-product-multi.php), Example2 - [bitcoin](https://gourl.io/lib/examples/pay-per-product.php)
+* **Pay-Per-Download**: Example3 - [multiple crypto](https://gourl.io/lib/examples/pay-per-download-multi.php), Example4 - [bitcoin](https://gourl.io/lib/examples/pay-per-download.php)
+* **Pay-Per-Post**: Example5 - [multiple crypto](https://gourl.io/lib/examples/pay-per-post-multi.php), Example6 - [bitcoin](https://gourl.io/lib/examples/pay-per-post.php)
+* **Pay-Per-Registration**: Example7 - [multiple crypto](https://gourl.io/lib/examples/pay-per-registration-multi.php), Example8 - [bitcoin](https://gourl.io/lib/examples/pay-per-registration.php)
+* **Pay-Per-Page-Access**: Example19 - [multiple crypto](https://gourl.io/lib/examples/pay-per-page-multi.php), Example10 - [bitcoin](https://gourl.io/lib/examples/pay-per-page.php)
+* **Pay-Per-Membership**: Example11 - [multiple crypto](https://gourl.io/lib/examples/pay-per-membership-multi.php), Example12 - [bitcoin](https://gourl.io/lib/examples/pay-per-membership.php)
 * **Your Custom Payment Box** Example13 - [bitcoin json / jquery](https://gourl.io/lib/examples/json.php)
-      
- 
+
+   

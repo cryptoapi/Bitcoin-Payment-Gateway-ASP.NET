@@ -1017,7 +1017,7 @@ namespace Gourl.Controllers.GoUrl
                     if (cryptobox.is_paid())
                     {
                         ViewBag.Message += "<div style=\"margin:50px\" class=\"well\"><i class=\"fa fa-info-circle fa-3x fa-pull-left fa-border\" aria-hidden=\"true\"></i> " + Controls.localisation[model.language].MsgNotReceived.Replace("%coinName%", model.coinName)
-                        .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
+                        .Replace("%coinNames%", model.coinLabel == "BCH" || model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
                         .Replace("%coinLabel%", model.coinLabel) + "</div>";
                     }else if (cryptobox.is_processed())
                     {

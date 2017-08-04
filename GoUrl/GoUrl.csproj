@@ -114,6 +114,8 @@
     <Content Include="Global.asax" />
     <Content Include="images\bitcoin.png" />
     <Content Include="images\bitcoin2.png" />
+    <Content Include="images\bitcoincash.png" />
+    <Content Include="images\bitcoincash2.png" />
     <Content Include="images\dash.png" />
     <Content Include="images\dash2.png" />
     <Content Include="images\dogecoin.png" />
@@ -125,8 +127,6 @@
     <Content Include="images\litecoin2.png" />
     <Content Include="images\monetaryunit.png" />
     <Content Include="images\monetaryunit2.png" />
-    <Content Include="images\paycoin.png" />
-    <Content Include="images\paycoin2.png" />
     <Content Include="images\peercoin.png" />
     <Content Include="images\peercoin2.png" />
     <Content Include="images\potcoin.png" />
@@ -135,8 +135,6 @@
     <Content Include="images\reddcoin2.png" />
     <Content Include="images\speedcoin.png" />
     <Content Include="images\speedcoin2.png" />
-    <Content Include="images\vericoin.png" />
-    <Content Include="images\vericoin2.png" />
     <Content Include="images\vertcoin.png" />
     <Content Include="images\vertcoin2.png" />
     <Content Include="Models\GourlDb.Context.tt">

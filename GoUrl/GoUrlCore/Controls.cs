@@ -11,7 +11,8 @@ namespace Gourl.GoUrlCore
 {
     public static partial class Controls
     {
-        private static readonly string[] CryptoboxCoins = { "bitcoin", "litecoin", "dogecoin", "dash", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "vericoin", "peercoin", "paycoin", "monetaryunit", "swiscoin" };
+        private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit" };
+
         /// <summary>
         /// Display Cryptocoin Payment Box; the cryptobox will automatically displays successful message if payment has been received
         /// 
@@ -93,7 +94,7 @@ namespace Gourl.GoUrlCore
                     spanBuilder.MergeAttribute("style", "color:#eb4847");
                     spanBuilder.InnerHtml = localisation[model.language].MsgNotReceived
                         .Replace("%coinName%", model.coinName)
-                        .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
+                        .Replace("%coinNames%", model.coinLabel == "BCH" || model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
                         .Replace("%coinLabel%", model.coinLabel);
 
                     TagBuilder scrptBuilder = new TagBuilder("script");
@@ -156,7 +157,7 @@ namespace Gourl.GoUrlCore
                 buttonBuilder.MergeAttribute("style", "color:#555;border-color:#ccc;background:#f7f7f7;-webkit-box-shadow:inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);box-shadow:inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);vertical-align:top;display:inline-block;text-decoration:none;font-size:13px;line-height:26px;min-height:28px;margin:20px 0 25px 0;padding:0 10px 1px;cursor:pointer;border-width:1px;border-style:solid;-webkit-appearance:none;-webkit-border-radius:3px;border-radius:3px;white-space:nowrap;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:\"Open Sans\",sans-serif;font-size: 13px;font-weight: normal;text-transform: none;");
                 buttonBuilder.InnerHtml = localisation[model.language].Button
                         .Replace("%coinName%", model.coinName)
-                        .Replace("%coinNames%", model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
+                        .Replace("%coinNames%", model.coinLabel == "BCH" || model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
                         .Replace("%coinLabel%", model.coinLabel) +
                         (model.language != "ar" ? " &#187;" : "") + " &#160;";
 

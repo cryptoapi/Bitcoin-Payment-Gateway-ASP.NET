@@ -146,10 +146,10 @@
     <File Include="images/monetaryunit2.png">
       <publishTime>04/04/2017 02:23:56</publishTime>
     </File>
-    <File Include="images/paycoin.png">
+    <File Include="images/bitcoincash.png">
       <publishTime>04/04/2017 02:23:56</publishTime>
     </File>
-    <File Include="images/paycoin2.png">
+    <File Include="images/bitcoincash2.png">
       <publishTime>04/04/2017 02:23:55</publishTime>
     </File>
     <File Include="images/peercoin.png">
@@ -174,12 +174,6 @@
       <publishTime>04/04/2017 02:23:55</publishTime>
     </File>
     <File Include="images/speedcoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
-    </File>
-    <File Include="images/vericoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
-    </File>
-    <File Include="images/vericoin2.png">
       <publishTime>04/04/2017 02:23:55</publishTime>
     </File>
     <File Include="images/vertcoin.png">

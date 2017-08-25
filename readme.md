@@ -2,7 +2,7 @@
 GoUrl.io Bitcoin/Altcoin Payment Gateway API ASP .NET C#
 -----------------------------------------
 
-Version 1.0.7
+Version 1.0.9
 
 **Accept Bitcoin, Bitcoin Cash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit Payments Online on your website**
 

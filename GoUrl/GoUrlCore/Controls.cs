@@ -11,7 +11,7 @@ namespace Gourl.GoUrlCore
 {
     public static partial class Controls
     {
-        private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit" };
+        private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
 
         /// <summary>
         /// Display Cryptocoin Payment Box; the cryptobox will automatically displays successful message if payment has been received

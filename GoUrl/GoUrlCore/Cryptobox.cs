@@ -19,7 +19,7 @@ namespace Gourl.GoUrlCore
 {
     public class Cryptobox : IDisposable
     {
-	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit" };
+	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
 
         private OptionsModel options;
         private GoUrlEntities Context = new GoUrlEntities();
@@ -745,7 +745,7 @@ namespace Gourl.GoUrlCore
 
     public static class CryptoHelper
     {
-	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit" };
+	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
 
         public static string cryptobox_selcoin(string[] coins, string defCoin = "")
         {

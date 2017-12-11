@@ -122,6 +122,8 @@
     <Content Include="images\dogecoin2.png" />
     <Content Include="images\feathercoin.png" />
     <Content Include="images\feathercoin2.png" />
+    <Content Include="images\universalcurrency.png" />
+    <Content Include="images\universalcurrency2.png" />
     <Content Include="images\index.html" />
     <Content Include="images\litecoin.png" />
     <Content Include="images\litecoin2.png" />

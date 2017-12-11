@@ -2,9 +2,9 @@
 GoUrl.io Bitcoin/Altcoin Payment Gateway API ASP .NET C#
 -----------------------------------------
 
-Version 1.0.9
+Version 1.0.10
 
-**Accept Bitcoin, Bitcoin Cash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit Payments Online on your website**
+**Accept Bitcoin, Bitcoin Cash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, UniversalCurrency, MonetaryUnit Payments Online on your website**
 
 
 Copyright &copy; 2014-2017 [Delta Consultants](https://gourl.io)
@@ -173,6 +173,7 @@ Payment API List :
 * [Potcoin Payment API](https://gourl.io/potcoin-payment-gateway-api.html)
 * [Feathercoin Payment API](https://gourl.io/feathercoin-payment-gateway-api.html)
 * [Vertcoin Payment API](https://gourl.io/vertcoin-payment-gateway-api.html)
+* [UniversalCurrency Payment API](https://gourl.io/universalcurrency-payment-gateway-api.html)
 * [MonetaryUnit Payment API](https://gourl.io/monetaryunit-payment-gateway-api.html)
 * [Peercoin Payment API](https://gourl.io/peercoin-payment-gateway-api.html)
 

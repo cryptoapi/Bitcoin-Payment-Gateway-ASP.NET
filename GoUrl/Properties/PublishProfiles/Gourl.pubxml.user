@@ -131,6 +131,12 @@
     <File Include="images/feathercoin2.png">
       <publishTime>04/04/2017 02:23:56</publishTime>
     </File>
+    <File Include="images/universalcurrency.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
+    <File Include="images/universalcurrency2.png">
+      <publishTime>04/04/2017 02:23:56</publishTime>
+    </File>
     <File Include="images/index.html">
       <publishTime>04/04/2017 02:23:56</publishTime>
     </File>

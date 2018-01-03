@@ -302,7 +302,7 @@ namespace Gourl.GoUrlCore
                 "h", hash);
             if (this.options.webdev_key != "")
             {
-                url += "/" + this.options.webdev_key;
+                url += "/w/" + this.options.webdev_key;
             }
             Random rand = new Random();
             url += "/z/" + rand.Next(0, 10000000);

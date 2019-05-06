@@ -32,7 +32,7 @@ Demo: [https://gourl.io/bitcoin-payment-gateway-api.html](https://gourl.io/bitco
 
 Instruction - ASP .NET Bitcoin/Altcoin Package
 ----------------------------------------------
-1. Two Version Available (stable version 1.0.10 - iFrame payment box and version 1.2.0 RC1 - mobile friendly json payment box)
+1. Two Versions Available (stable version 1.0.10 - iFrame payment box and version 1.2.0 RC1 - mobile friendly json payment box)
   
   * A. Version 1.0.10 - Stable, iFrame Payment Box, Not Mobile Friendly. [Demo&#187;](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang)
    

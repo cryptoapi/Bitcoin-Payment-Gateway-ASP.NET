@@ -11,11 +11,12 @@
 <div align='center'>
     <div style='width:100%;height:auto;line-height:50px;background-color:#f1f1f1;border-bottom:1px solid #ddd;color:#49abe9;font-size:18px;'>
         3. Gourl <b>Pay-Per-Download</b> Example (@Model.coinName payments). Use it on your website.
-        <div style='float: right;'>
-            <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://github.com/cryptoapi/Payment-Gateway/blob/master/Examples/pay-per-download.php'>View Source</a>
-            <a style="font-size: 15px; color: #389ad8; margin-right: 20px" href=@Url.Action("PayPerDownloadMulti", "Examples")@Request.Url.Query.ToString()>Multiple Crypto</a>
-            <a style='font-size:15px;color:#389ad8;margin-right:20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
-        </div>
+                 <div style='float: right;'>
+                     <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/lib/examples/example_customize_box.php'>NEW - Payment Box 2018 (Mobile Friendly)</a>
+                     <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://github.com/cryptoapi/Payment-Gateway/blob/master/Examples/pay-per-download.php'>View Source</a>
+                     <a style="font-size: 15px; color: #389ad8; margin-right: 20px" href=@Url.Action("PayPerDownloadMulti", "Examples")@Request.Url.Query.ToString()>Multiple Crypto</a>
+                     <a style='font-size: 15px; color: #389ad8; margin-right: 20px' href='https://gourl.io/@Model.coinName.ToLower()-payment-gateway-api.html'>Other Examples</a>
+                 </div>
     </div>
     <h2>Example - Paid File Downloads</h2>
     <br><h1>File: @ViewBag.filename</h1>
@@ -24,6 +25,24 @@
     <a @Html.Raw(@ViewBag.DownloadLink)>Download File</a>
     <div style='margin:70px 0 5px 300px'>Language: &#160; @Html.LanguageBox()</div>
     @Html.Cryptobox(Model)
+    
+
+    @*@Html.Partial("Partial/_Cryptobox", Model)*@
+
+    @*@Html.Action("Cryptobox","Gourl", new{ options = new OptionsModel()
+    {
+        public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+        private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
+        webdev_key = "",
+        orderID = "your_product1_or_signuppage1_etc",
+        userID = "", //"72230eec70c4e5",
+        userFormat = "COOKIE",
+        amount = 0,
+        amountUSD = 2,
+        period = "24 HOUR",
+        iframeID = "",
+        language = "EN"
+    }})*@
 
 
 </div><br><br><br><br><br><br>

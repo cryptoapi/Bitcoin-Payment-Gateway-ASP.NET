@@ -29,6 +29,7 @@ namespace Gourl.Models.GoUrl
                                          /* IMPORTANT - If you use Payment Box/Captcha for registered users on your website, you need to set userID manually with 
                                           * an unique value for each of your registered user. It is better than to use cookies by default. Examples: 'user1', 'user2', '3vIh9MjEis' */
         public string userFormat = "COOKIE"; // this variable use only if userID above is empty - it will save random userID in cookies, sessions or use user IP address as userID. Available values: COOKIE, SESSION, IPADDRESS
+        public string dataMethod = "curl"; 
 
         /* PLEASE NOTE -
          * If you use multiple stores/sites online, please create separate GoUrl Payment Box (with unique payment box public/private keys) for each of your stores/websites. 

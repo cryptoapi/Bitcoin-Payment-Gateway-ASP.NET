@@ -9,5 +9,6 @@ namespace Gourl.Models.GoUrl
         public string MsgReceived2 { get; set; }
         public string Payment { get; set; }
         public string PayIn { get; set; }
+        public string Loading { get; set; }
     }
 }

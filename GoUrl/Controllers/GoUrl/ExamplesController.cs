@@ -15,54 +15,201 @@ namespace Gourl.Controllers.GoUrl
         {
             return View();
         }
-        public ActionResult Basic()
+        public ActionResult BasicCurl()
         {
+            string defCoin = "bitcoin";
+
+            string[] coins = new[] { "bitcoin", "dogecoin" };
+            IDictionary<string, IDictionary<string, string>> all_keys = new Dictionary
+                <string, IDictionary<string, string>>()
+            {
+                {
+                    "bitcoin", new Dictionary<string, string>()
+                    {
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
+                    }
+                },
+                {
+                    "dogecoin", new Dictionary<string, string>()
+                    {
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
+                    }
+                }
+            };
+
+            foreach (KeyValuePair<string, IDictionary<string, string>> valuePair in all_keys)
+            {
+                if (valuePair.Value["public_key"] == null || valuePair.Value["private_key"] == null ||
+                    valuePair.Value["public_key"] == "" || valuePair.Value["private_key"] == "")
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Please add your public/private keys for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!valuePair.Value["public_key"].Contains("PUB"))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Invalid public key for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!valuePair.Value["private_key"].Contains("PRV"))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Invalid private key for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!ConfigurationManager.AppSettings["PrivateKeys"].Contains(valuePair.Value["private_key"]))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Please add your private key for " + valuePair.Key +
+                                      " in Web.config."
+                        };
+                }
+            }
+
+            string coinName = CryptoHelper.cryptobox_selcoin(coins, defCoin);
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = all_keys[coinName]["public_key"],
+                private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "your_product1_or_signuppage1_etc",
+                orderID = "invoice077321",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
-                amountUSD = 2,
-                period = "24 HOUR",
-                iframeID = "",
-                language = "DE"
+                amountUSD = (decimal)0.01,
+                period = "NOEXPIRY",
+                language = "en",
+                dataMethod = "curl"
             };
             using (Cryptobox cryptobox = new Cryptobox(options))
             {
-                DisplayCryptoboxModel model = cryptobox.GetDisplayCryptoboxModel();
+                DisplayCryptoboxBootstrapModel model = cryptobox.GetDisplayCryptoboxBootstrapModel();
+
                 // A. Process Received Payment
                 if (cryptobox.is_paid())
                 {
-                    ViewBag.Message = "A. User will see this message during 24 hours after payment has been made!" +
-                                      "<br/>" + cryptobox.amount_paid() + " " + cryptobox.coin_label() +
-                                      "  received<br/>";
-                    // Your code here to handle a successful cryptocoin payment/captcha verification
-                    // For example, give user 24 hour access to your member pages
+                    //you code here
+                }
 
-                    // B. One-time Process Received Payment
-                    if (!cryptobox.is_processed())
+                ViewBag.Coins = coins;
+                ViewBag.DefCoin = defCoin;
+                ViewBag.DefLang = options.language;
+                ViewBag.CustomText = "<p class='lead'>Demo Text - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>" +
+                    "<p class='lead'>Please contact us for any questions on aaa@example.com</p>";
+
+                return View(model);
+            }
+        }
+
+        public ActionResult BasicAjax()
+        {
+            string defCoin = "bitcoin";
+
+            string[] coins = new[] { "bitcoin", "dogecoin" };
+            IDictionary<string, IDictionary<string, string>> all_keys = new Dictionary
+                <string, IDictionary<string, string>>()
+            {
+                {
+                    "bitcoin", new Dictionary<string, string>()
                     {
-                        ViewBag.Message += "B. User will see this message one time after payment has been made!";
-                        // Your code here - for example, publish order number for user
-                        // ...
-
-                        // Also you can use is_confirmed() - return true if payment confirmed 
-                        // Average transaction confirmation time - 10-20min for 6 confirmations  
-
-                        // Set Payment Status to Processed
-                        cryptobox.set_status_processed();
-
-                        // Optional, cryptobox_reset() will delete cookies/sessions with userID and 
-                        // new cryptobox with new payment amount will be show after page reload.
-                        // Cryptobox will recognize user as a new one with new generated userID
-                        // cryptobox_reset(); 
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
+                    }
+                },
+                {
+                    "dogecoin", new Dictionary<string, string>()
+                    {
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
-                ViewBag.Message = "The payment has not been made yet";
+            };
+
+            foreach (KeyValuePair<string, IDictionary<string, string>> valuePair in all_keys)
+            {
+                if (valuePair.Value["public_key"] == null || valuePair.Value["private_key"] == null ||
+                    valuePair.Value["public_key"] == "" || valuePair.Value["private_key"] == "")
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Please add your public/private keys for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!valuePair.Value["public_key"].Contains("PUB"))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Invalid public key for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!valuePair.Value["private_key"].Contains("PRV"))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Invalid private key for " + valuePair.Key +
+                                      " in all_keys variable"
+                        };
+                }
+                else if (!ConfigurationManager.AppSettings["PrivateKeys"].Contains(valuePair.Value["private_key"]))
+                {
+                    return
+                        new ContentResult()
+                        {
+                            Content = "Please add your private key for " + valuePair.Key +
+                                      " in Web.config."
+                        };
+                }
+            }
+
+            string coinName = CryptoHelper.cryptobox_selcoin(coins, defCoin);
+            OptionsModel options = new OptionsModel()
+            {
+                public_key = all_keys[coinName]["public_key"],
+                private_key = all_keys[coinName]["private_key"],
+                webdev_key = "",
+                orderID = "invoice175281",
+                userID = "",
+                userFormat = "COOKIE",
+                amount = 0,
+                amountUSD = (decimal)0.01,
+                period = "NOEXPIRY",
+                language = "en",
+                dataMethod = "ajax"
+            };
+            using (Cryptobox cryptobox = new Cryptobox(options))
+            {
+                DisplayCryptoboxBootstrapModel model = cryptobox.GetDisplayCryptoboxBootstrapModel();
+
+                // A. Process Received Payment
+                if (cryptobox.is_paid())
+                {
+                    //you code here
+                }
+
+                ViewBag.Coins = coins;
+                ViewBag.DefCoin = defCoin;
+                ViewBag.DefLang = options.language;
+                ViewBag.CustomText = "<p class='lead'>Demo Text - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>" +
+                    "<p class='lead'>Please contact us for any questions on aaa@example.com</p>";
 
                 return View(model);
             }
@@ -75,14 +222,14 @@ namespace Gourl.Controllers.GoUrl
             string dir = "protected";
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
                 orderID = Calculator.md5(dir + ViewBag.filename),
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
-                amountUSD = (decimal)0.2,
+                amountUSD = (decimal)0.01,
                 period = "24 HOUR",
                 iframeID = "",
                 language = "EN"
@@ -129,15 +276,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -223,14 +370,14 @@ namespace Gourl.Controllers.GoUrl
         {
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
-                orderID = "premium_membership",
+                orderID = "newpremium_membership",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
-                amountUSD = (decimal)0.2,
+                amountUSD = (decimal)0.01,
                 period = "1 MONTH",
                 language = "en"
             };
@@ -266,15 +413,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -326,7 +473,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = all_keys[coinName]["public_key"],
                 private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "premium_membership",
+                orderID = "newpremium_membership",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -366,10 +513,10 @@ namespace Gourl.Controllers.GoUrl
         {
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
-                orderID = "page1",
+                orderID = "newpage1",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -396,15 +543,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -456,7 +603,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = all_keys[coinName]["public_key"],
                 private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "page1",
+                orderID = "newpage1",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -483,10 +630,10 @@ namespace Gourl.Controllers.GoUrl
         {
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
-                orderID = "post1",
+                orderID = "newpost1",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -540,15 +687,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -600,7 +747,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = all_keys[coinName]["public_key"],
                 private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "post1",
+                orderID = "newpost1",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -650,10 +797,10 @@ namespace Gourl.Controllers.GoUrl
         {
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
-                orderID = "invoice000383",
+                orderID = "newinvoice000383",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -705,15 +852,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -765,7 +912,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = all_keys[coinName]["public_key"],
                 private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "invoice000383",
+                orderID = "newinvoice000383",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -814,10 +961,10 @@ namespace Gourl.Controllers.GoUrl
         {
             OptionsModel options = new OptionsModel()
             {
-                public_key = "-your public key for Bitcoin box-",
-                private_key = "-your private key for Bitcoin box-",
+                public_key = "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL",
+                private_key = "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE",
                 webdev_key = "",
-                orderID = "signuppage",
+                orderID = "newsignuppage",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -874,15 +1021,15 @@ namespace Gourl.Controllers.GoUrl
                 {
                     "bitcoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Bitcoin box-"},
-                        {"private_key", "-your private key for Bitcoin box-"}
+                        {"public_key", "25654AAo79c3Bitcoin77BTCPUBqwIefT1j9fqqMwUtMI0huVL"},
+                        {"private_key", "25654AAo79c3Bitcoin77BTCPRV0JG7w3jg0Tc5Pfi34U8o5JE"}
                     }
                 },
                 {
                     "dogecoin", new Dictionary<string, string>()
                     {
-                        {"public_key", "-your public key for Dogecoin box-"},
-                        {"private_key", "-your private key for Dogecoin box-"}
+                        {"public_key", "25678AACxnGODogecoin77DOGEPUBZEaJlR9W48LUYagmT9LU8"},
+                        {"private_key", "25678AACxnGODogecoin77DOGEPRVFvl6IDdisuWHVJLo5m4eq"}
                     }
                 }
             };
@@ -934,7 +1081,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = all_keys[coinName]["public_key"],
                 private_key = all_keys[coinName]["private_key"],
                 webdev_key = "",
-                orderID = "signuppage",
+                orderID = "newsignuppage",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -986,6 +1133,7 @@ namespace Gourl.Controllers.GoUrl
 
         public ActionResult Payments()
         {
+            //добавить using
             GoUrlEntities Context = new GoUrlEntities();
             IEnumerable<crypto_payments> payments = Context.crypto_payments.OrderByDescending(x => x.recordCreated).Take(100);
             return View(payments);
@@ -998,7 +1146,7 @@ namespace Gourl.Controllers.GoUrl
                 public_key = "-your gourl.io public key for Bitcoin/Dogecoin/etc box-",
                 private_key = "-your gourl.io private key for Bitcoin/Dogecoin/etc box-",
                 webdev_key = "",
-                orderID = "invoice22",
+                orderID = "newinvoice22",
                 userID = "",
                 userFormat = "COOKIE",
                 amount = 0,
@@ -1019,7 +1167,8 @@ namespace Gourl.Controllers.GoUrl
                         ViewBag.Message += "<div style=\"margin:50px\" class=\"well\"><i class=\"fa fa-info-circle fa-3x fa-pull-left fa-border\" aria-hidden=\"true\"></i> " + Controls.localisation[model.language].MsgNotReceived.Replace("%coinName%", model.coinName)
                         .Replace("%coinNames%", model.coinLabel == "BCH" || model.coinLabel == "DASH" ? model.coinName : model.coinName + "s")
                         .Replace("%coinLabel%", model.coinLabel) + "</div>";
-                    }else if (cryptobox.is_processed())
+                    }
+                    else if (cryptobox.is_processed())
                     {
                         ViewBag.Message += "<div style=\"margin:70px\" class=\"alert alert-success\" role=\"alert\"> " + (model.boxType == "paymentbox"
                         ? Controls.localisation[model.language].MsgReceived

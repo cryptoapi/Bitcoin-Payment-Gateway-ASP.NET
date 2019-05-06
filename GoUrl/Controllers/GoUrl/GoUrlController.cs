@@ -138,7 +138,6 @@ namespace Gourl.Controllers.GoUrl
 
                 return PartialView("Partial/_Cryptobox", model);
             }
-
         }
     }
 }

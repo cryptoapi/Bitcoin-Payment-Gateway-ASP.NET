@@ -16,8 +16,9 @@ namespace Gourl.GoUrlCore
                 MsgReceived = "%coinName% Payment System received %amountPaid% %coinLabel% successfully !",
                 MsgReceived2 = "%coinName% Captcha received %amountPaid% %coinLabel% successfully !",
                 Payment = "Select Payment Method",
-                PayIn = "Payment in %coinName%"
-            }
+                PayIn = "Payment in %coinName%",
+                Loading = "Loading ..."
+                }
             },
             {
                 "es", new LocalisationModel()
@@ -28,7 +29,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% Sistema de pago recibido %amountPaid% %coinLabel% satisfactoriamente !",
                     MsgReceived2 = "%coinName% Captcha recibido %amountPaid% %coinLabel% satisfactoriamente !",
                     Payment = "Seleccionar m&eacute;todo de pago",
-                    PayIn = "Pago en %coinName%"
+                    PayIn = "Pago en %coinName%",
+                    Loading = "Cargando ..."
                 }
             },
             {
@@ -40,7 +42,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "Le syst&egrave;me de paiement %coinName% a re&ccedil;u %amountPaid% %coinLabel% avec succ&egrave;s !",
                     MsgReceived2 = "Le %coinName% Captcha a re&ccedil;u %amountPaid% %coinLabel% avec succ&egrave;s !",
                     Payment = "S&eacute;lectionnez la m&eacute;thode de paiement",
-                    PayIn = "Paiement en %coinName%"
+                    PayIn = "Paiement en %coinName%",
+                    Loading = "Chargement ..."
                 }
             },
             {
@@ -52,7 +55,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% Bezahlsystem hat %amountPaid% %coinLabel% erfolgreich erhalten !",
                     MsgReceived2 = "%coinName% Captcha hat %amountPaid% %coinLabel% erfolgreich erhalten !",
                     Payment = "Zahlungmethode ausw&auml;hlen",
-                    PayIn = "Zahlung in %coinName%"
+                    PayIn = "Zahlung in %coinName%",
+                    Loading = "Wird geladen ..."
                 }
             },
             {
@@ -64,7 +68,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% Betaal Systeem heeft %amountPaid% %coinLabel% succesvol ontvangen !",
                     MsgReceived2 = "%coinName% Captcha Systeem heeft %amountPaid% %coinLabel% succesvol ontvangen !",
                     Payment = "Kies uw betaalmethode",
-                    PayIn = "Betaling in %coinName%"
+                    PayIn = "Betaling in %coinName%",
+                    Loading = "Bezig met laden ..."
                 }
             },
             {
@@ -76,7 +81,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "Il sistema di pagamento %coinName% ha ricevuto %amountPaid% %coinLabel% con successo !",
                     MsgReceived2 = "Il %coinName% Captcha ha ricevuto %amountPaid% %coinLabel% con successo !",
                     Payment = "Seleziona metodo di pagamento",
-                    PayIn = "Pagamento in %coinName%"
+                    PayIn = "Pagamento in %coinName%",
+                    Loading = "Caricamento in corso ..."
                 }
             },
             {
@@ -88,7 +94,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#1087;&#1083;&#1072;&#1090;&#1105;&#1078;&#1085;&#1072;&#1103; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1072; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1083;&#1072; %amountPaid% %coinLabel% &#1091;&#1089;&#1087;&#1077;&#1096;&#1085;&#1086; !",
                     MsgReceived2 = "%coinName% &#1082;&#1072;&#1087;&#1095;&#1072; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1083;&#1072; %amountPaid% %coinLabel% &#1091;&#1089;&#1087;&#1077;&#1096;&#1085;&#1086; !",
                     Payment = "&#1042;&#1099;&#1073;&#1077;&#1088;&#1080;&#1090;&#1077; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;",
-                    PayIn = "&#1054;&#1087;&#1083;&#1072;&#1090;&#1072; &#1074; %coinName%"
+                    PayIn = "&#1054;&#1087;&#1083;&#1072;&#1090;&#1072; &#1074; %coinName%",
+                    Loading = "&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1090;&#1089;&#1103; ..."
                 }
             },
             {
@@ -100,7 +107,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "System p&#322;atno&#347;ci %coinName% otrzyma&#322; %amountPaid% %coinLabel% pomy&#347;lnie !",
                     MsgReceived2 = "%coinName% Captcha otrzyma&#322; %amountPaid% %coinLabel% pomy&#347;lnie !",
                     Payment = "Wybierz metod&#281; p&#322;atno&#347;&#263;i",
-                    PayIn = "P&#322;atno&#347;&#263; w %coinName%"
+                    PayIn = "P&#322;atno&#347;&#263; w %coinName%",
+                    Loading = "&#321;aduj&#281; ..."
                 }
             },
             {
@@ -112,7 +120,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "O sistema de pagamentos %coinName% recebeu %amountPaid% %coinLabel% com sucesso !",
                     MsgReceived2 = "%coinName% Captcha recebeu %amountPaid% %coinLabel% com sucesso !",
                     Payment = "Selecione o metodo de pagamento",
-                    PayIn = "Pagamento em %coinName%"
+                    PayIn = "Pagamento em %coinName%",
+                    Loading = "Carregando ..."
                 }
             },
             {
@@ -124,7 +133,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#1587;&#1610;&#1587;&#1578;&#1605; &#1662;&#1585;&#1583;&#1575;&#1582;&#1578; %amountPaid% %coinLabel% &#1585;&#1575; &#1576;&#1575; &#1605;&#1608;&#1601;&#1602;&#1610;&#1578; &#1583;&#1585;&#1610;&#1575;&#1601;&#1578; &#1705;&#1585;&#1583; !",
                     MsgReceived2 = "%coinName% &#1705;&#1662;&#1670;&#1575; %amountPaid% %coinLabel% &#1585;&#1575; &#1576;&#1575; &#1605;&#1608;&#1601;&#1602;&#1610;&#1578; &#1583;&#1585;&#1610;&#1575;&#1601;&#1578; &#1705;&#1585;&#1583; !",
                     Payment = "&#1585;&#1608;&#1588; &#1662;&#1585;&#1583;&#1575;&#1582;&#1578; &#1585;&#1575; &#1575;&#1606;&#1578;&#1582;&#1575;&#1576; &#1705;&#1606;&#1610;&#1583;",
-                    PayIn = "&#1662;&#1585;&#1583;&#1575;&#1582;&#1578; &#1583;&#1585; %coinName%"
+                    PayIn = "&#1662;&#1585;&#1583;&#1575;&#1582;&#1578; &#1583;&#1585; %coinName%",
+                    Loading = "&#1576;&#1575;&#1585;&#1711;&#1584;&#1575;&#1585;&#1740; ..."
                 }
             },
             {
@@ -136,7 +146,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#44208;&#51228; &#49884;&#49828;&#53596;&#51060; %amountPaid% %coinLabel% &#47484; &#49457;&#44277;&#51201;&#51004;&#47196; &#48155;&#50520;&#49845;&#45768;&#45796; !",
                     MsgReceived2 = "%coinName% &#52897;&#52320;&#44032; %amountPaid% %coinLabel% &#47484; &#49457;&#44277;&#51201;&#51004;&#47196; &#48155;&#50520;&#49845;&#45768;&#45796; !",
                     Payment = "&#44208;&#51228; &#48169;&#48277; &#49440;&#53469;",
-                    PayIn = "%coinName% &#51648;&#44553;"
+                    PayIn = "%coinName% &#51648;&#44553;",
+                    Loading = "&#47196;&#46300; &#51473; ..."
                 }
             },
             {
@@ -148,7 +159,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName%&#27770;&#28168;&#12471;&#12473;&#12486;&#12512;&#12391; %amountPaid% %coinLabel% &#12398;&#27770;&#28168;&#12364;&#23436;&#20102;&#12375;&#12414;&#12375;&#12383; !",
                     MsgReceived2 = "%coinName%&#12461;&#12515;&#12502;&#12481;&#12515;&#12391; %amountPaid% %coinLabel% &#12398;&#27770;&#28168;&#12364;&#23436;&#20102;&#12375;&#12414;&#12375;&#12383; !",
                     Payment = "&#27770;&#28168;&#26041;&#27861;&#12434;&#36984;&#25246;",
-                    PayIn = "%coinName%&#12391;&#12398;&#27770;&#28168;"
+                    PayIn = "%coinName%&#12391;&#12398;&#27770;&#28168;",
+                    Loading = "&#35501;&#12415;&#36796;&#12435;&#12391;&#12356;&#12414;&#12377; ..."
                 }
             },
             {
@@ -160,7 +172,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% Sistem Pembayaran menerima %amountPaid% %coinLabel% dengan sukses !",
                     MsgReceived2 = "%coinName% Captcha menerima %amountPaid% %coinLabel% dengan sukses !",
                     Payment = "Pilih Metode Pembayaran",
-                    PayIn = "Pembayaran dalam bentuk %coinName%"
+                    PayIn = "Pembayaran dalam bentuk %coinName%",
+                    Loading = "Pemuatan ..."
                 }
             },
             {
@@ -172,7 +185,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#246;deme sistemine %amountPaid% %coinLabel% ba&#351;ar&#305;yla gelmi&#351;tir !",
                     MsgReceived2 = "%coinName% Capcha`ya %amountPaid% %coinLabel% ba&#351;ar&#305;yla gelmi&#351;tir !",
                     Payment = "&#214;deme metodunu se&#231;iniz",
-                    PayIn = "%coinName% ile &#246;deme"
+                    PayIn = "%coinName% ile &#246;deme",
+                    Loading = "Y&#252;kleniyor ..."
                 }
             },
             {
@@ -184,7 +198,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#1578;&#1605; &#1575;&#1587;&#1578;&#1604;&#1575;&#1605; &#1575;&#1604;&#1605;&#1576;&#1604;&#1594; %amountPaid% %coinLabel% &#1576;&#1606;&#1580;&#1575;&#1581; !",
                     MsgReceived2 = "%coinName% &#1578;&#1605; &#1575;&#1587;&#1578;&#1604;&#1575;&#1605; &#1575;&#1604;&#1603;&#1575;&#1576;&#1578;&#1588;&#1575; %amountPaid% %coinLabel% &#1576;&#1606;&#1580;&#1575;&#1581; !",
                     Payment = "&#1575;&#1582;&#1578;&#1585; &#1591;&#1585;&#1610;&#1602;&#1577; &#1575;&#1604;&#1583;&#1601;&#1593;",
-                    PayIn = "&#1583;&#1601;&#1593; &#1601;&#1610; %coinName%"
+                    PayIn = "&#1583;&#1601;&#1593; &#1601;&#1610; %coinName%",
+                    Loading = "&#1580;&#1575;&#1585; &#1575;&#1604;&#1578;&#1581;&#1605;&#1610;&#1604; ..."
                 }
             },
             {
@@ -196,7 +211,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#25903;&#20184;&#31995;&#32479;&#25104;&#21151;&#25509;&#25910;&#20102; %amountPaid% %coinLabel% !",
                     MsgReceived2 = "%coinName% &#39564;&#35777;&#30721;&#24050;&#25509;&#25910;&#65292; %amountPaid% %coinLabel% &#25104;&#21151; !",
                     Payment = "&#36873;&#25321;&#20184;&#27454;&#26041;&#24335;",
-                    PayIn = "&#25903;&#20184; %coinName%"
+                    PayIn = "&#25903;&#20184; %coinName%",
+                    Loading = "&#21152;&#36733;&#20013; ..."
                 }
             },
             {
@@ -208,7 +224,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#25903;&#20184;&#31995;&#32113;&#25104;&#21151;&#25509;&#25910;&#20102; %amountPaid% %coinLabel% !",
                     MsgReceived2 = "%coinName% &#39511;&#35657;&#30908;&#24050;&#25509;&#25910;&#65292;%amountPaid% %coinLabel% &#25104;&#21151; !",
                     Payment = "&#36984;&#25799;&#20184;&#27454;&#26041;&#24335;",
-                    PayIn = "&#25903;&#20184; %coinName%"
+                    PayIn = "&#25903;&#20184; %coinName%",
+                    Loading = "&#21152;&#36617;&#20013; ..."
                 }
             },
             {
@@ -220,7 +237,8 @@ namespace Gourl.GoUrlCore
                     MsgReceived = "%coinName% &#2349;&#2369;&#2327;&#2340;&#2366;&#2344; &#2346;&#2381;&#2352;&#2339;&#2366;&#2354;&#2368; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; %amountPaid% %coinLabel% &#2360;&#2347;&#2354;&#2340;&#2366;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; !",
                     MsgReceived2 = "%coinName% &#2325;&#2376;&#2346;&#2381;&#2330;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; %amountPaid% %coinLabel% &#2360;&#2347;&#2354;&#2340;&#2366;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; !",
                     Payment = "&#2330;&#2369;&#2344;&#2375;&#2306; &#2349;&#2369;&#2327;&#2340;&#2366;&#2344; &#2325;&#2366; &#2340;&#2352;&#2368;&#2325;&#2366;",
-                    PayIn = "%coinName% &#2350;&#2375;&#2306; &#2349;&#2369;&#2327;&#2340;&#2366;&#2344;"
+                    PayIn = "%coinName% &#2350;&#2375;&#2306; &#2349;&#2369;&#2327;&#2340;&#2366;&#2344;",
+                    Loading = "&#2354;&#2379;&#2337; &#2361;&#2379; &#2352;&#2361;&#2366; &#2361;&#2376; ..."
                 }
             }
         };       // en - English, es - Spanish, fr - French, de - German, nl - Dutch, it - Italian, ru - Russian, pl - Polish, pt - Portuguese, fa - Persian, ko - Korean, ja - Japanese, id - Indonesian, tr - Turkish, ar - Arabic, cn - Simplified Chinese, zh - Traditional Chinese, hi - Hindi

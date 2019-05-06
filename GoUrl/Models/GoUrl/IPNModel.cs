@@ -20,12 +20,18 @@ namespace Gourl.Models.GoUrl
     {
         public override bool IsValid(object value)
         {
-            string[] ss = ConfigurationManager.AppSettings["PrivateKeys"].Split(new char[] {',', ' '},StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrEmpty(value as string))
+            {
+                return true;
+            }
+
+            string[] ss = ConfigurationManager.AppSettings["PrivateKeys"].Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             List<string> s = new List<string>();
             foreach (string s1 in ss)
             {
                 s.Add(Calculator.md512(s1));
             }
+
             return s.Contains(value);
         }
     }
@@ -43,7 +49,6 @@ namespace Gourl.Models.GoUrl
 
         [StringLength(128)]
         [RegularExpression(@"^[a-zA-Z0-9]+$")]
-        [Required]
         [PrivateKeyConfirm]
         public string private_key_hash { get; set; }
 

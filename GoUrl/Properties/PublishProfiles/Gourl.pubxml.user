@@ -2,263 +2,857 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Ihor\Documents\Gourl</_PublishTargetUrl>
+    <_PublishTargetUrl>G:\newGourl\publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/GourlDb.mdf">
-      <publishTime>07/14/2017 23:47:38</publishTime>
+      <publishTime>02/25/2019 15:50:15</publishTime>
     </File>
     <File Include="App_Data/GourlDb_log.ldf">
-      <publishTime>07/14/2017 23:47:38</publishTime>
+      <publishTime>02/25/2019 15:50:15</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>09/11/2013 09:10:04</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>09/11/2013 09:10:04</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/Gourl.dll">
-      <publishTime>07/14/2017 23:50:54</publishTime>
+      <publishTime>02/25/2019 15:51:33</publishTime>
+    </File>
+    <File Include="bin/Gourl.pdb">
+      <publishTime>02/25/2019 15:51:33</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>06/15/2015 02:06:24</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>04/23/2012 15:23:58</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>06/18/2015 20:19:44</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>06/18/2015 20:19:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Helpers.resources.dll">
-      <publishTime>01/28/2015 04:04:40</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Mvc.resources.dll">
-      <publishTime>01/28/2015 04:02:30</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Razor.resources.dll">
-      <publishTime>01/28/2015 04:02:40</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Webpages.Deployment.resources.dll">
-      <publishTime>01/28/2015 04:04:40</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Webpages.Razor.resources.dll">
-      <publishTime>01/28/2015 04:04:40</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/ru/System.Web.Webpages.resources.dll">
-      <publishTime>01/28/2015 04:04:40</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
-      <publishTime>02/19/2015 20:10:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
-      <publishTime>02/19/2015 20:10:46</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>01/28/2015 03:04:30</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>01/28/2015 03:02:18</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>01/28/2015 03:02:32</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>01/28/2015 03:04:30</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>01/28/2015 03:04:30</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>01/28/2015 03:04:30</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
+    </File>
+    <File Include="css/bootstrapcustom.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/cerulean.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/darkly.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/flatly.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/litera.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/lux.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/minty.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/pulse.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/sandstone.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/sketchy.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/solar.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/superhero.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/united.min.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/bootstrapcustom.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/cerulean.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/darkly.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/flatly.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/litera.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/lux.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/minty.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/pulse.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/sandstone.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/sketchy.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/solar.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/superhero.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="css/_source/united.css">
+      <publishTime>08/27/2018 12:14:56</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>04/04/2017 02:20:23</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="images/bitcoin.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_ar.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_en.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_fa.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_id.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_it.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_ja.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_ko.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_pl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_pt.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_tr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/captcha_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_ar.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_en.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_fa.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_id.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_it.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_ja.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_ko.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_pl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_pt.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_tr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoin/payment_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/bitcoin2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoincash/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoincash/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/bitcoincash/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoinsv.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoinsv/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoinsv/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/bitcoinsv2.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/dash.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/captcha_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/captcha_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/dash/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/payment_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/payment_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dash/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/dash2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/dogecoin.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/captcha_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/dogecoin/payment_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/dogecoin2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/feathercoin.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/feathercoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/feathercoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/feathercoin2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/captcha_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/litecoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_de.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_nl.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/litecoin/payment_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/monetaryunit/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/monetaryunit/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/monetaryunit/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/paid.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/paid2.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/paid3.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/peercoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/peercoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/potcoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/potcoin.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/potcoin/potcoin2.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/captcha_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/reddcoin/payment_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/captcha_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_cn.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_fr.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_hi.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/speedcoin/payment_zh.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/universalcurrency.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/universalcurrency/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/universalcurrency/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/universalcurrency/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/universalcurrency2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/index.html">
       <publishTime>04/04/2017 02:23:56</publishTime>
     </File>
     <File Include="images/litecoin.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/litecoin2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/monetaryunit.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/monetaryunit2.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/bitcoincash.png">
-      <publishTime>04/04/2017 02:23:56</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/bitcoincash2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/peercoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/peercoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/potcoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/potcoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/reddcoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/reddcoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/speedcoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/speedcoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/vertcoin.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/captcha.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/captcha_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/captcha_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/index.html">
+      <publishTime>08/27/2018 12:14:56</publishTime>
+    </File>
+    <File Include="images/vertcoin/payment.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/payment_es.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/vertcoin/payment_ru.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="images/vertcoin2.png">
-      <publishTime>04/04/2017 02:23:55</publishTime>
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/w3c.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/white-label.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/your_logo.png">
+      <publishTime>11/24/2018 04:32:50</publishTime>
+    </File>
+    <File Include="images/your_logo_res.jpg">
+      <publishTime>11/24/2018 04:32:50</publishTime>
     </File>
     <File Include="Models/GourlDb.edmx.diagram">
-      <publishTime>04/04/2017 02:23:45</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/04/2017 02:23:58</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
+    </File>
+    <File Include="scripts/ajax.js">
+      <publishTime>02/25/2019 11:09:49</publishTime>
     </File>
     <File Include="scripts/cryptobox.js">
-      <publishTime>06/25/2017 05:32:42</publishTime>
+      <publishTime>02/20/2019 13:30:54</publishTime>
+    </File>
+    <File Include="scripts/support.js">
+      <publishTime>02/20/2019 13:30:54</publishTime>
     </File>
     <File Include="Views/Examples/Basic.cshtml">
-      <publishTime>06/13/2017 12:21:09</publishTime>
+      <publishTime>01/09/2019 07:58:00</publishTime>
+    </File>
+    <File Include="Views/Examples/BasicAjax.cshtml">
+      <publishTime>02/24/2019 07:50:54</publishTime>
+    </File>
+    <File Include="Views/Examples/BasicCurl.cshtml">
+      <publishTime>02/22/2019 07:14:29</publishTime>
     </File>
     <File Include="Views/Examples/Index.cshtml">
-      <publishTime>07/05/2017 00:19:18</publishTime>
+      <publishTime>02/24/2019 08:01:24</publishTime>
     </File>
     <File Include="Views/Examples/Payments.cshtml">
-      <publishTime>04/04/2017 02:30:11</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="Views/Examples/PayPerDownload.cshtml">
-      <publishTime>04/04/2017 02:31:08</publishTime>
+      <publishTime>02/08/2019 03:48:48</publishTime>
     </File>
     <File Include="Views/Examples/PayPerDownloadMulti.cshtml">
-      <publishTime>04/04/2017 02:31:35</publishTime>
+      <publishTime>02/25/2019 15:18:42</publishTime>
     </File>
     <File Include="Views/Examples/PayPerJson.cshtml">
-      <publishTime>07/07/2017 00:35:04</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="Views/Examples/PayPerMembership.cshtml">
-      <publishTime>04/04/2017 02:31:54</publishTime>
+      <publishTime>01/19/2019 06:59:22</publishTime>
     </File>
     <File Include="Views/Examples/PayPerMembershipMulti.cshtml">
-      <publishTime>04/04/2017 02:32:02</publishTime>
+      <publishTime>01/19/2019 07:08:07</publishTime>
     </File>
     <File Include="Views/Examples/PayPerPage.cshtml">
-      <publishTime>04/04/2017 02:32:08</publishTime>
+      <publishTime>01/19/2019 07:01:52</publishTime>
     </File>
     <File Include="Views/Examples/PayPerPageMulti.cshtml">
-      <publishTime>04/04/2017 02:32:17</publishTime>
+      <publishTime>01/19/2019 07:08:16</publishTime>
     </File>
     <File Include="Views/Examples/PayPerPost.cshtml">
-      <publishTime>04/04/2017 02:32:26</publishTime>
+      <publishTime>01/19/2019 07:03:55</publishTime>
     </File>
     <File Include="Views/Examples/PayPerPostMulti.cshtml">
-      <publishTime>04/04/2017 02:32:33</publishTime>
+      <publishTime>01/19/2019 07:06:58</publishTime>
     </File>
     <File Include="Views/Examples/PayPerProduct.cshtml">
-      <publishTime>04/04/2017 02:32:39</publishTime>
+      <publishTime>02/01/2019 07:15:28</publishTime>
     </File>
     <File Include="Views/Examples/PayPerProductMulti.cshtml">
-      <publishTime>04/04/2017 02:32:46</publishTime>
+      <publishTime>01/19/2019 07:09:26</publishTime>
     </File>
     <File Include="Views/Examples/PayPerRegistration.cshtml">
-      <publishTime>04/04/2017 02:32:51</publishTime>
+      <publishTime>02/01/2019 07:15:20</publishTime>
     </File>
     <File Include="Views/Examples/PayPerRegistrationMulti.cshtml">
-      <publishTime>04/04/2017 02:32:57</publishTime>
+      <publishTime>01/19/2019 07:09:18</publishTime>
     </File>
     <File Include="Views/Shared/Partial/_Cryptobox.cshtml">
-      <publishTime>04/04/2017 02:23:35</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/04/2017 02:29:41</publishTime>
+      <publishTime>01/09/2019 08:12:13</publishTime>
     </File>
     <File Include="Views/Test/Index.cshtml">
-      <publishTime>06/13/2017 12:22:16</publishTime>
+      <publishTime>02/25/2019 15:04:34</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>04/04/2017 02:20:23</publishTime>
+      <publishTime>01/03/2018 05:47:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/14/2017 23:50:56</publishTime>
+      <publishTime>02/25/2019 10:57:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

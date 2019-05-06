@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +57,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
@@ -111,34 +116,212 @@
   <ItemGroup>
     <Content Include="App_Data\GourlDb.mdf" />
     <Content Include="App_Data\GourlDb_log.ldf" />
+    <Content Include="css\bootstrapcustom.min.css" />
+    <Content Include="css\cerulean.min.css" />
+    <Content Include="css\darkly.min.css" />
+    <Content Include="css\flatly.min.css" />
+    <Content Include="css\litera.min.css" />
+    <Content Include="css\lux.min.css" />
+    <Content Include="css\minty.min.css" />
+    <Content Include="css\pulse.min.css" />
+    <Content Include="css\sandstone.min.css" />
+    <Content Include="css\sketchy.min.css" />
+    <Content Include="css\solar.min.css" />
+    <Content Include="css\superhero.min.css" />
+    <Content Include="css\united.min.css" />
+    <Content Include="css\_source\bootstrapcustom.css" />
+    <Content Include="css\_source\cerulean.css" />
+    <Content Include="css\_source\darkly.css" />
+    <Content Include="css\_source\flatly.css" />
+    <Content Include="css\_source\litera.css" />
+    <Content Include="css\_source\lux.css" />
+    <Content Include="css\_source\minty.css" />
+    <Content Include="css\_source\pulse.css" />
+    <Content Include="css\_source\sandstone.css" />
+    <Content Include="css\_source\sketchy.css" />
+    <Content Include="css\_source\solar.css" />
+    <Content Include="css\_source\superhero.css" />
+    <Content Include="css\_source\united.css" />
     <Content Include="Global.asax" />
     <Content Include="images\bitcoin.png" />
     <Content Include="images\bitcoin2.png" />
     <Content Include="images\bitcoincash.png" />
     <Content Include="images\bitcoincash2.png" />
+    <Content Include="images\bitcoincash\captcha.png" />
+    <Content Include="images\bitcoincash\payment.png" />
+    <Content Include="images\bitcoinsv.png" />
+    <Content Include="images\bitcoinsv2.png" />
+    <Content Include="images\bitcoinsv\captcha.png" />
+    <Content Include="images\bitcoinsv\payment.png" />
+    <Content Include="images\bitcoin\captcha.png" />
+    <Content Include="images\bitcoin\captcha_ar.png" />
+    <Content Include="images\bitcoin\captcha_cn.png" />
+    <Content Include="images\bitcoin\captcha_de.png" />
+    <Content Include="images\bitcoin\captcha_en.png" />
+    <Content Include="images\bitcoin\captcha_es.png" />
+    <Content Include="images\bitcoin\captcha_fa.png" />
+    <Content Include="images\bitcoin\captcha_fr.png" />
+    <Content Include="images\bitcoin\captcha_hi.png" />
+    <Content Include="images\bitcoin\captcha_id.png" />
+    <Content Include="images\bitcoin\captcha_it.png" />
+    <Content Include="images\bitcoin\captcha_ja.png" />
+    <Content Include="images\bitcoin\captcha_ko.png" />
+    <Content Include="images\bitcoin\captcha_nl.png" />
+    <Content Include="images\bitcoin\captcha_pl.png" />
+    <Content Include="images\bitcoin\captcha_pt.png" />
+    <Content Include="images\bitcoin\captcha_ru.png" />
+    <Content Include="images\bitcoin\captcha_tr.png" />
+    <Content Include="images\bitcoin\captcha_zh.png" />
+    <Content Include="images\bitcoin\payment.png" />
+    <Content Include="images\bitcoin\payment_ar.png" />
+    <Content Include="images\bitcoin\payment_cn.png" />
+    <Content Include="images\bitcoin\payment_de.png" />
+    <Content Include="images\bitcoin\payment_en.png" />
+    <Content Include="images\bitcoin\payment_es.png" />
+    <Content Include="images\bitcoin\payment_fa.png" />
+    <Content Include="images\bitcoin\payment_fr.png" />
+    <Content Include="images\bitcoin\payment_hi.png" />
+    <Content Include="images\bitcoin\payment_id.png" />
+    <Content Include="images\bitcoin\payment_it.png" />
+    <Content Include="images\bitcoin\payment_ja.png" />
+    <Content Include="images\bitcoin\payment_ko.png" />
+    <Content Include="images\bitcoin\payment_nl.png" />
+    <Content Include="images\bitcoin\payment_pl.png" />
+    <Content Include="images\bitcoin\payment_pt.png" />
+    <Content Include="images\bitcoin\payment_ru.png" />
+    <Content Include="images\bitcoin\payment_tr.png" />
+    <Content Include="images\bitcoin\payment_zh.png" />
     <Content Include="images\dash.png" />
     <Content Include="images\dash2.png" />
+    <Content Include="images\dash\captcha.png" />
+    <Content Include="images\dash\captcha_de.png" />
+    <Content Include="images\dash\captcha_es.png" />
+    <Content Include="images\dash\captcha_nl.png" />
+    <Content Include="images\dash\captcha_ru.png" />
+    <Content Include="images\dash\payment.png" />
+    <Content Include="images\dash\payment_de.png" />
+    <Content Include="images\dash\payment_es.png" />
+    <Content Include="images\dash\payment_nl.png" />
+    <Content Include="images\dash\payment_ru.png" />
     <Content Include="images\dogecoin.png" />
     <Content Include="images\dogecoin2.png" />
+    <Content Include="images\dogecoin\captcha.png" />
+    <Content Include="images\dogecoin\captcha_cn.png" />
+    <Content Include="images\dogecoin\captcha_de.png" />
+    <Content Include="images\dogecoin\captcha_es.png" />
+    <Content Include="images\dogecoin\captcha_fr.png" />
+    <Content Include="images\dogecoin\captcha_hi.png" />
+    <Content Include="images\dogecoin\captcha_ru.png" />
+    <Content Include="images\dogecoin\captcha_zh.png" />
+    <Content Include="images\dogecoin\payment.png" />
+    <Content Include="images\dogecoin\payment_cn.png" />
+    <Content Include="images\dogecoin\payment_de.png" />
+    <Content Include="images\dogecoin\payment_es.png" />
+    <Content Include="images\dogecoin\payment_fr.png" />
+    <Content Include="images\dogecoin\payment_hi.png" />
+    <Content Include="images\dogecoin\payment_ru.png" />
+    <Content Include="images\dogecoin\payment_zh.png" />
     <Content Include="images\feathercoin.png" />
     <Content Include="images\feathercoin2.png" />
-    <Content Include="images\universalcurrency.png" />
-    <Content Include="images\universalcurrency2.png" />
-    <Content Include="images\index.html" />
+    <Content Include="images\feathercoin\captcha.png" />
+    <Content Include="images\feathercoin\captcha_es.png" />
+    <Content Include="images\feathercoin\captcha_ru.png" />
+    <Content Include="images\feathercoin\payment.png" />
+    <Content Include="images\feathercoin\payment_es.png" />
+    <Content Include="images\feathercoin\payment_ru.png" />
     <Content Include="images\litecoin.png" />
     <Content Include="images\litecoin2.png" />
+    <Content Include="images\litecoin\captcha.png" />
+    <Content Include="images\litecoin\captcha_cn.png" />
+    <Content Include="images\litecoin\captcha_de.png" />
+    <Content Include="images\litecoin\captcha_es.png" />
+    <Content Include="images\litecoin\captcha_fr.png" />
+    <Content Include="images\litecoin\captcha_hi.png" />
+    <Content Include="images\litecoin\captcha_nl.png" />
+    <Content Include="images\litecoin\captcha_ru.png" />
+    <Content Include="images\litecoin\captcha_zh.png" />
+    <Content Include="images\litecoin\payment.png" />
+    <Content Include="images\litecoin\payment_cn.png" />
+    <Content Include="images\litecoin\payment_de.png" />
+    <Content Include="images\litecoin\payment_es.png" />
+    <Content Include="images\litecoin\payment_fr.png" />
+    <Content Include="images\litecoin\payment_hi.png" />
+    <Content Include="images\litecoin\payment_nl.png" />
+    <Content Include="images\litecoin\payment_ru.png" />
+    <Content Include="images\litecoin\payment_zh.png" />
     <Content Include="images\monetaryunit.png" />
     <Content Include="images\monetaryunit2.png" />
+    <Content Include="images\monetaryunit\captcha.png" />
+    <Content Include="images\monetaryunit\payment.png" />
+    <Content Include="images\paid.png" />
+    <Content Include="images\paid2.png" />
+    <Content Include="images\paid3.png" />
     <Content Include="images\peercoin.png" />
     <Content Include="images\peercoin2.png" />
+    <Content Include="images\peercoin\captcha.png" />
+    <Content Include="images\peercoin\captcha_es.png" />
+    <Content Include="images\peercoin\captcha_ru.png" />
+    <Content Include="images\peercoin\payment.png" />
+    <Content Include="images\peercoin\payment_es.png" />
+    <Content Include="images\peercoin\payment_ru.png" />
     <Content Include="images\potcoin.png" />
     <Content Include="images\potcoin2.png" />
+    <Content Include="images\potcoin\captcha.png" />
+    <Content Include="images\potcoin\captcha_es.png" />
+    <Content Include="images\potcoin\captcha_ru.png" />
+    <Content Include="images\potcoin\payment.png" />
+    <Content Include="images\potcoin\payment_es.png" />
+    <Content Include="images\potcoin\payment_ru.png" />
+    <Content Include="images\potcoin\potcoin.png" />
+    <Content Include="images\potcoin\potcoin2.png" />
     <Content Include="images\reddcoin.png" />
     <Content Include="images\reddcoin2.png" />
+    <Content Include="images\reddcoin\captcha.png" />
+    <Content Include="images\reddcoin\captcha_cn.png" />
+    <Content Include="images\reddcoin\captcha_es.png" />
+    <Content Include="images\reddcoin\captcha_fr.png" />
+    <Content Include="images\reddcoin\captcha_hi.png" />
+    <Content Include="images\reddcoin\captcha_ru.png" />
+    <Content Include="images\reddcoin\captcha_zh.png" />
+    <Content Include="images\reddcoin\payment.png" />
+    <Content Include="images\reddcoin\payment_cn.png" />
+    <Content Include="images\reddcoin\payment_es.png" />
+    <Content Include="images\reddcoin\payment_fr.png" />
+    <Content Include="images\reddcoin\payment_hi.png" />
+    <Content Include="images\reddcoin\payment_ru.png" />
+    <Content Include="images\reddcoin\payment_zh.png" />
     <Content Include="images\speedcoin.png" />
     <Content Include="images\speedcoin2.png" />
+    <Content Include="images\speedcoin\captcha.png" />
+    <Content Include="images\speedcoin\captcha_cn.png" />
+    <Content Include="images\speedcoin\captcha_es.png" />
+    <Content Include="images\speedcoin\captcha_fr.png" />
+    <Content Include="images\speedcoin\captcha_hi.png" />
+    <Content Include="images\speedcoin\captcha_ru.png" />
+    <Content Include="images\speedcoin\captcha_zh.png" />
+    <Content Include="images\speedcoin\payment.png" />
+    <Content Include="images\speedcoin\payment_cn.png" />
+    <Content Include="images\speedcoin\payment_es.png" />
+    <Content Include="images\speedcoin\payment_fr.png" />
+    <Content Include="images\speedcoin\payment_hi.png" />
+    <Content Include="images\speedcoin\payment_ru.png" />
+    <Content Include="images\speedcoin\payment_zh.png" />
+    <Content Include="images\universalcurrency.png" />
+    <Content Include="images\universalcurrency2.png" />
+    <Content Include="images\universalcurrency\captcha.png" />
+    <Content Include="images\universalcurrency\payment.png" />
     <Content Include="images\vertcoin.png" />
     <Content Include="images\vertcoin2.png" />
+    <Content Include="images\vertcoin\captcha.png" />
+    <Content Include="images\vertcoin\captcha_es.png" />
+    <Content Include="images\vertcoin\captcha_ru.png" />
+    <Content Include="images\vertcoin\payment.png" />
+    <Content Include="images\vertcoin\payment_es.png" />
+    <Content Include="images\vertcoin\payment_ru.png" />
+    <Content Include="images\w3c.png" />
+    <Content Include="images\white-label.png" />
+    <Content Include="images\your_logo.png" />
+    <Content Include="images\your_logo_res.jpg" />
     <Content Include="Models\GourlDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GourlDb.Context.cs</LastGenOutput>
@@ -149,7 +332,9 @@
       <LastGenOutput>GourlDb.cs</LastGenOutput>
       <DependentUpon>GourlDb.edmx</DependentUpon>
     </Content>
+    <Content Include="scripts\ajax.js" />
     <Content Include="scripts\cryptobox.js" />
+    <Content Include="scripts\support.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -185,6 +370,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GourlDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GoUrl\DisplayCryptoboxBootstrapModel.cs" />
     <Compile Include="Models\GoUrl\DisplayCryptoboxModel.cs" />
     <Compile Include="Models\GoUrl\IPNModel.cs" />
     <Compile Include="Models\GoUrl\LocalisationModel.cs" />
@@ -204,7 +390,7 @@
     </EntityDeploy>
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Examples\Basic.cshtml" />
+    <Content Include="Views\Examples\BasicCurl.cshtml" />
     <Content Include="Views\Examples\Index.cshtml" />
     <Content Include="Views\Examples\Payments.cshtml" />
     <Content Include="Views\Examples\PayPerDownload.cshtml" />
@@ -221,6 +407,7 @@
     <Content Include="Views\Examples\PayPerRegistrationMulti.cshtml" />
     <Content Include="Views\Examples\PayPerJson.cshtml" />
     <None Include="Properties\PublishProfiles\Gourl.pubxml" />
+    <Content Include="Views\Examples\BasicAjax.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

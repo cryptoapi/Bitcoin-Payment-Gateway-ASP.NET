@@ -2,12 +2,14 @@
 GoUrl.io Bitcoin/Altcoin Payment Gateway API ASP .NET C#
 -----------------------------------------
 
-Version 1.0.10
+Version 1.2.0 RC1
+
+NEW - Mobile Friendly,  White Label Product - Bitcoin/altcoin Payments with your own logo. [Live Demo](https://gourl.io/lib/examples/example_customize_box.php?deb=no#b)
 
 **Accept Bitcoin, Bitcoin Cash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, UniversalCurrency, MonetaryUnit Payments Online on your website**
 
 
-Copyright &copy; 2014-2018 [Delta Consultants](https://gourl.io)
+Copyright &copy; 2014-2019 [Delta Consultants](https://gourl.io)
 
 Website: [https://gourl.io](https://gourl.io)
 
@@ -30,8 +32,12 @@ Demo: [https://gourl.io/bitcoin-payment-gateway-api.html](https://gourl.io/bitco
 
 Instruction - ASP .NET Bitcoin/Altcoin Package
 ----------------------------------------------
-* 1. Install package from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is package only without examples) 
-*  or download full package with Examples from github / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
+* 1.  Two Version Available (stable version 1.0.10 - iFrame payment box and version 1.2.0 RC1 - mobile friendly json payment box)
+* 1a. Version 1.1.0 - Stable, iFrame Payment Box, Not Mobile Friendly. [Demo](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang)
+*     Install package from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is package only without examples, Iframe, not mobile friendly) 
+*     or download full package v1.1.0 with Examples from [github](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/releases) / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
+* 1b. Version 1.2.0RC1 (release candidate 1), Json Payment Box, Mobile Friendly, White Label Product. [Demo](https://gourl.io/lib/examples/example_customize_box.php?deb=no#b)
+*     Download full package v1.2.0RC1 with Examples from [github](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET) / [zip source file](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/archive/master.zip)
 * 2. Package uses own database with table [crypto_payments](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package) (file [/GoUrl/App_Data/GourlDb.mdf](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data)) for storing bitcoin/altcoin payment information (transaction ID, payment Date, user ID, order ID, etc) on your website. If you wish to move this table to your existing database, run [sql query](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET#mssql-table-for-package), it will create new MSSQL "crypto_payments" table in your existing database; and after configure 'connectionStrings' in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L53). Package default Database store in [/GoUrl/App_Data](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/tree/master/GoUrl/App_Data) folder. Example - Asp Page with [All Payment Statistics](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Views/Examples/Payments.cshtml)
 * 3. [Free Register](https://gourl.io/view/registration/New_User_Registration.html) or [Login](https://gourl.io/info/memberarea/My_Account.html) on the gourl.io, [create new payment box/es](https://gourl.io/editrecord/coin_boxes/0) and get free GoUrl Private/Public Keys ([screenshot](https://gourl.io/images/paymentbox1.png))
 * 4. Place all your [GoUrl Private Keys](https://gourl.io/images/paymentbox1.png) in [/GoUrl/Web.config](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/blob/master/GoUrl/Web.config#L15) ([screenshot](https://gourl.io/images/instruction-asp-config1.png))

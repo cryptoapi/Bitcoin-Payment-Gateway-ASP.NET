@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
+using System.Dynamic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -11,15 +13,18 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Helpers;
+using System.Xml.Linq;
 using Gourl.Models;
 using Gourl.Models.GoUrl;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 namespace Gourl.GoUrlCore
 {
     public class Cryptobox : IDisposable
     {
-	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
+        private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "bitcoinsv", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
 
         private OptionsModel options;
         private GoUrlEntities Context = new GoUrlEntities();
@@ -92,14 +97,14 @@ namespace Gourl.GoUrlCore
                 throw new ArgumentOutOfRangeException("You can use in cryptobox options one of variable only: amount or amountUSD. You cannot place values in that two variables together (submitted amount = '" + this.options.amount + "' and amountUSD = '" + this.options.amountUSD + "' )");
             }
 
-            if ((this.options.amount > 0 && this.options.amount < (decimal)0.0001) || this.options.amount > 50000000)
+            if ((this.options.amount > 0 && this.options.amount < (decimal)0.0001) || this.options.amount > 500000000)
             {
-                throw new ArgumentOutOfRangeException("Invalid Amount - " + this.options.amount + " " + coinLabel + ". Allowed range: 0.0001 .. 50,000,000");
+                throw new ArgumentOutOfRangeException("Invalid Amount - " + this.options.amount.ToString("C2") + " " + coinLabel + ". Allowed range: 0.0001 .. 500,000,000");
             }
 
             if ((this.options.amountUSD > 0 && this.options.amountUSD < (decimal)0.0001) || this.options.amountUSD > 50000000)
             {
-                throw new ArgumentOutOfRangeException("Invalid amountUSD - " + options.amountUSD + "USD. Allowed range: 0.01 .. 1,000,000");
+                throw new ArgumentOutOfRangeException("Invalid amountUSD - " + options.amountUSD.ToString("C2") + "USD. Allowed range: 0.01 .. 1,000,000");
             }
 
             this.options.period = this.options.period.Trim().ToUpper();
@@ -259,10 +264,21 @@ namespace Gourl.GoUrlCore
             return obj;
         }
 
+        public DisplayCryptoboxBootstrapModel GetDisplayCryptoboxBootstrapModel()
+        {
+            DisplayCryptoboxBootstrapModel obj = new DisplayCryptoboxBootstrapModel();
+            obj.CryptoboxModel = GetDisplayCryptoboxModel();
+            obj.JsonUrl = cryptobox_json_url();
+            obj.JsonValues = get_json_values();
+            obj.Method = options.dataMethod;
+
+            return obj;
+        }
+
         /// <summary>
         /// Function cryptobox_json_url()
         ///
-        /// It generates url with your paramenters to gourl.io payment gateway.
+        /// It generates url with your parameters to gourl.io payment gateway.
         /// Using this url you can get bitcoin/altcoin payment box values in JSON format and use it on html page with Jquery/Ajax.
 
         /// See instruction https://gourl.io/bitcoin-payment-gateway-api.html#p8
@@ -299,6 +315,7 @@ namespace Gourl.GoUrlCore
                 "us", this.options.userFormat,
                 "j", "1",
                 "d", Convert.ToBase64String(Encoding.UTF8.GetBytes(ip)),
+                "f", Convert.ToBase64String(Encoding.UTF8.GetBytes(Ua())),
                 "h", hash);
             if (this.options.webdev_key != "")
             {
@@ -306,11 +323,22 @@ namespace Gourl.GoUrlCore
             }
             Random rand = new Random();
             url += "/z/" + rand.Next(0, 10000000);
-            return url; 
+
+            return url;
         }
 
-        public dynamic get_json_values()
+        private string Ua()
         {
+            return "";
+            return HttpContext.Current.Request.Url.AbsoluteUri + " | GU ASP " + ConfigurationManager.AppSettings["CRYPTOBOX_ASP_VERSION"] ?? "";
+        }
+
+        public JObject get_json_values()
+        {
+            if (options.dataMethod == "ajax")
+            {
+                return null;
+            }
             string url = cryptobox_json_url();
             HttpClient client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(20);
@@ -319,26 +347,48 @@ namespace Gourl.GoUrlCore
             HttpContent responseContent = response.Content;
             using (var reader = new StreamReader(responseContent.ReadAsStreamAsync().Result))
             {
-                IDictionary<string, object> res = Json.Decode(reader.ReadToEndAsync().Result);
+                JObject res;
+                string result = reader.ReadToEndAsync().Result;
+                try
+                {
+                    result = CryptoHelper.EscapeText(result);
+                    res = JObject.Parse(result);
+                }
+                catch (Exception e)
+                {
+                    return new JObject()
+                    {
+                        {"status", "error"},
+                        {"err", Regex.Replace(result, "<[^>]*(>|$)", string.Empty).Substring(0, 250) }
+                    };
+                }
+
                 if (res == null)
                 {
                     return null;
                 }
                 bool f = false;
-                IDictionary<string, object> arr = res;
-                if (arr["data_hash"] != null)
+
+                JObject arr2 = new JObject(res);
+                if (arr2["data_hash"] != null)
                 {
-                    arr.Remove("data_hash");
-                    if (arr["data_hash"].ToString() ==
-                        Calculator.hash512(this.options.private_key + Json.Encode(arr) + this.options.private_key)
-                            .ToLower())
+                    arr2.Remove("data_hash");
+
+                    if (res["data_hash"].ToString().ToLower() ==
+                        Calculator.hash512(this.options.private_key + CryptoHelper.UnEscapeText(arr2.ToString(Formatting.None)) 
+                                                                    + this.options.private_key).ToLower())
                     {
                         f = true;
                     }
                 }
                 if (!f)
                     return null;
-                    
+
+                if (res["status"].ToString() == "payment_received" && !is_paid())
+                {
+                    this.check_payment(true);
+                }
+
                 return res;
             }
         }
@@ -525,7 +575,7 @@ namespace Gourl.GoUrlCore
             {
                 remotedb = true;
             }
-            
+
             if (!this.already_checked &&
                 ((obj == null && remotedb) || (obj != null && !this.confirmed && (diff > TimeSpan.FromMinutes(10)))))
             {
@@ -538,11 +588,13 @@ namespace Gourl.GoUrlCore
         public bool check_payment_live()
         {
             string ip = HttpContext.Current.Request.UserHostAddress;
-            string hash = Calculator.md5(boxID + options.private_key + options.userID + options.orderID + options.language + options.period + ip);
+            string private_key_hash = Calculator.hash512(this.options.private_key);
+            string hash = Calculator.md5(boxID + private_key_hash + options.userID + options.orderID + options.language + options.period + ip);
             string box_status = "";
 
             HttpClient client = new HttpClient();
-            FormUrlEncodedContent requestContent = new FormUrlEncodedContent(new[] {new KeyValuePair<string, string>("r", this.options.private_key),
+            FormUrlEncodedContent requestContent = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string, string>("g", private_key_hash),
                 new KeyValuePair<string, string>("b", boxID.ToString()),
                 new KeyValuePair<string, string>("o", this.options.orderID),
                 new KeyValuePair<string, string>("u", this.options.userID),
@@ -573,8 +625,12 @@ namespace Gourl.GoUrlCore
                 decimal amount = 0;
                 if (res["status"] != "" && res["status"] == "payment_received" &&
                     res["box"] != "" && Int32.TryParse(res["box"], out box) && box > 0 &&
-                    res["amount"] != "" && decimal.TryParse(res["amount"], NumberStyles.Any, CultureInfo.InvariantCulture, out amount) && amount > 0 &&
-                    res["private_key"] != "" && Regex.IsMatch(res["private_key"], "[a-zA-Z0-9]+") && res["private_key"] == this.options.private_key)
+                    res["amount"] != "" &&
+                    decimal.TryParse(res["amount"], NumberStyles.Any, CultureInfo.InvariantCulture, out amount) &&
+                    amount > 0 &&
+                    res["private_key_hash"] != "" && res["private_key_hash"].ToString().Length == 128 &&
+                    Regex.IsMatch(res["private_key_hash"], "[a-zA-Z0-9]+") &&
+                    res["private_key_hash"] == private_key_hash)
                 {
                     string order = res["order"];
                     string user = res["user"];
@@ -745,14 +801,14 @@ namespace Gourl.GoUrlCore
 
     public static class CryptoHelper
     {
-	private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
+        private static readonly string[] CryptoboxCoins = { "bitcoin", "bitcoincash", "bitcoinsv", "litecoin", "dash", "dogecoin", "speedcoin", "reddcoin", "potcoin", "feathercoin", "vertcoin", "peercoin", "monetaryunit", "universalcurrency" };
 
         public static string cryptobox_selcoin(string[] coins, string defCoin = "")
         {
             if (coins.Length == 0)
                 return "";
             defCoin = defCoin.ToLower();
-            string id = "gourlcryptocoin";
+            string id = ConfigurationManager.AppSettings["CryptoboxCoinsHTMLId"] ?? "gourlcryptocoin";
 
             string coinName;
 
@@ -780,34 +836,206 @@ namespace Gourl.GoUrlCore
             return coinName;
         }
 
-        /// <summary>
-        /// Currency Converter using Google Finance live exchange rates
-        ///Example - convert_currency_live("EUR", "USD", 22.37) - convert 22.37euro to usd
-        /// convert_currency_live("EUR", "BTC", 22.37) - convert 22.37euro to bitcoin
-        /// </summary>
-        /// <param name="from_Currency"></param>
-        /// <param name="to_Currency"></param>
-        /// <param name="amount"></param>
+        ///  <summary>
+        ///  Currency Converter using Google Finance live exchange rates
+        /// Example - convert_currency_live("EUR", "USD", 22.37) - convert 22.37euro to usd
+        ///  convert_currency_live("EUR", "BTC", 22.37) - convert 22.37euro to bitcoin
+        ///  </summary>
+        ///  <param name="from_Currency"></param>
+        ///  <param name="to_Currency"></param>
+        ///  <param name="amount"></param>
+        /// <param name="currencyConverterApiKey"></param>
         /// <returns></returns>
-        public static decimal convert_currency_live(string from_Currency, string to_Currency, double amount)
+        public static decimal convert_currency_live(string from_Currency, string to_Currency, decimal amount,
+                       string currencyConverterApiKey = "")
         {
             from_Currency = from_Currency.ToUpper().Trim();
             to_Currency = to_Currency.ToUpper().Trim();
-            decimal res = 0;
 
-            if (from_Currency == "TRL") from_Currency = "TRY"; // fix for Turkish Lyra
-            if (from_Currency == "ZWD") from_Currency = "ZWL"; // fix for Zimbabwe Dollar
-            if (from_Currency == "RIAL") from_Currency = "IRR"; // fix for Iranian Rial
+            switch (from_Currency)
+            {
+                case "TRL":
+                    from_Currency = "TRY"; // fix for Turkish Lyra
+                    break;
+                case "ZWD":
+                    from_Currency = "ZWL"; // fix for Zimbabwe Dollar
+                    break;
+                case "RM":
+                    from_Currency = "MYR"; // fix for Malaysian Ringgit
+                    break;
+                case "XBT":
+                    from_Currency = "BTC"; // fix for Bitcoin
+                    break;
+                case "RIAL":
+                    from_Currency = "IRR"; // fix for Iranian Rial
+                    break;
+                case "IRT":
+                    from_Currency = "IRR"; // fix for Iranian Toman; 1IRT = 10IRR
+                    amount *= 10;
+                    break;
+            }
+            if (to_Currency == "XBT")
+                to_Currency = "BTC"; // fix for Bitcoin
 
-            string url = "https://www.google.com/finance/converter?a=" + amount + "&from=" + from_Currency + "&to=" + to_Currency;
+            decimal total = 0;
+            string key = from_Currency + "_" + to_Currency;
 
+            var session = HttpContext.Current.Session;
+
+            decimal val = 0;
+
+            // a. restore saved exchange rate
+            // ----------------
+            if (session["exch_" + key] != null && Decimal.TryParse(session["exch_" + key].ToString(), out val))
+            {
+                if (val > 0)
+                {
+                    total = val * amount;
+                    if (to_Currency == "BTC" || total < 0.01m)
+                        total = Math.Round(total, 5);
+                    else
+                        total = Math.Round(total, 2);
+                    if (total == 0)
+                        total = 0.00001m;
+                    return total;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            if (from_Currency == to_Currency)
+                val = 1;
+
+            // b. get BTC rates
+            // ----------------
+            decimal bitcoinUSD = 0;
+            string[] aval;
+            if (val == 0 && (from_Currency == "BTC" || to_Currency == "BTC"))
+            {
+                aval = new string[]
+                {
+                    "BTC", "USD", "AUD", "BRL", "CAD", "CHF", "CLP", "CNY", "DKK", "EUR", "GBP", "HKD", "INR", "ISK",
+                    "JPY", "KRW", "NZD", "PLN", "RUB", "SEK", "SGD", "THB", "TWD"
+                };
+
+                if (aval.Contains(from_Currency) && aval.Contains(to_Currency))
+                {
+                    Dictionary<string, decimal> rates = new Dictionary<string, decimal>();
+                    rates["BTC"] = 1;
+                    var data = Json.Decode(get_url_contents("https://blockchain.info/ticker"));
+                    foreach (var v in data)
+                    {
+                        if (v.Value["15m"] > 1000)
+                            rates[v.Key] = v.Value["15m"];
+                        else if (v.Value["last"] > 1000)
+                            rates[v.Key] = v.Value["last"];
+                        else
+                            rates[v.Key] = 0;
+                    }
+
+                    // convert BTC/USD, EUR/BTC, etc.
+                    if (rates.ContainsKey(to_Currency) && rates[to_Currency] > 0 && rates.ContainsKey(from_Currency) && rates[from_Currency] > 0)
+                        val = rates[to_Currency] / rates[from_Currency];
+                    if (rates.ContainsKey("USD") && rates["USD"] > 0)
+                        bitcoinUSD = rates["USD"];
+                }
+
+                if (val == 0 && bitcoinUSD < 1000)
+                {
+                    var data = Json.Decode(get_url_contents("https://www.bitstamp.net/api/ticker/"));
+                    if (data["last"] != null && data["volume"] != null && data["last"] > 1000)
+                        bitcoinUSD = Math.Round(data["last"]);
+                }
+
+                if (from_Currency == "BTC" && to_Currency == "USD" && bitcoinUSD > 0)
+                    val = bitcoinUSD;
+                if (from_Currency == "USD" && to_Currency == "BTC" && bitcoinUSD > 0)
+                    val = 1 / bitcoinUSD;
+            }
+
+            // c. get rates from European Central Bank https://www.ecb.europa.eu
+            // ----------------
+            aval = new string[]
+            {
+                "EUR", "USD", "JPY", "BGN", "CZK", "DKK", "GBP", "HUF", "PLN", "RON", "SEK", "CHF", "ISK", "NOK", "HRK", "RUB", "TRY", "AUD", "BRL", "CAD", "CNY", "HKD", "IDR", "ILS", "INR", "KRW", "MXN", "MYR", "NZD", "PHP", "SGD", "THB", "ZAR"
+            };
+            if (bitcoinUSD > 0)
+                aval = new string[] { "BTC" };
+            if (val == 0 && aval.Contains(from_Currency) && aval.Contains(to_Currency))
+            {
+                XDocument doc = XDocument.Load("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml");
+                string jsonText = JsonConvert.SerializeXNode(doc);
+                dynamic xml = JsonConvert.DeserializeObject<dynamic>(jsonText);
+                var data = xml["gesmes:Envelope"]["Cube"]["Cube"];
+
+                if (data != null)
+                {
+                    var time = data["@time"];
+
+                    // rates EUR->...
+                    Dictionary<string, decimal> rates = new Dictionary<string, decimal>();
+                    rates["EUR"] = 1;
+                    foreach (var v in data["Cube"])
+                    {
+                        rates[v["@currency"].ToString()] = Decimal.Parse(v["@rate"].ToString());
+                    }
+
+                    if (bitcoinUSD > 0 && rates["USD"] > 0)
+                        rates["BTC"] = rates["USD"] / bitcoinUSD;
+
+                    // convert USD/JPY, EUR/GBP, etc.
+                    if (rates[to_Currency] > 0 && rates[from_Currency] > 0)
+                        val = rates[to_Currency] / rates[from_Currency];
+                }
+            }
+
+
+            // d. get rates from https://free.currencyconverterapi.com/api/v6/convert?q=BTC_EUR&compact=y
+            // ----------------
+            if (val == 0)
+            {
+                var data = Json.Decode(get_url_contents("https://free.currencyconverterapi.com/api/v6/convert?q=" 
+                                                        + key 
+                                                        + "&compact=ultra&apiKey=" + currencyConverterApiKey, 20, true));
+                if (data[key] != null && data[key] > 0)
+                    val = data[key];
+            }
+
+            // e. result
+            // ------------
+            if (val > 0)
+            {
+                session["exch_" + key] = val;
+                total = val * amount;
+
+                if (to_Currency == "BTC" || total < 0.01m)
+                    total = Math.Round(total, 5);
+                else total = Math.Round(total, 2);
+
+                if (total == 0)
+                    total = 0.00001m;
+                return total;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        private static string get_url_contents(string url, double timeout = 20, bool ignoreHttpCode = false )
+        {
             HttpClient client = new HttpClient();
-            client.Timeout = TimeSpan.FromSeconds(20);
+            client.Timeout = TimeSpan.FromSeconds(timeout);
 
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             // Get the response content.
             HttpContent responseContent = response.Content;
+
+            string res = "";
 
             // Get the stream of the content.
             using (var reader = new StreamReader(responseContent.ReadAsStreamAsync().Result))
@@ -815,18 +1043,15 @@ namespace Gourl.GoUrlCore
                 // Write the output.
                 try
                 {
-                    string obj = reader.ReadToEndAsync().Result;
-                    string num = obj.Substring(obj.IndexOf("bld>") + 4);
-                    num = num.Substring(0, num.IndexOf(to_Currency) - 1);
-                    res = Math.Round(decimal.Parse(num, CultureInfo.InvariantCulture), to_Currency == "BTC" ? 5 : 2);
+                    res = reader.ReadToEndAsync().Result;
                 }
                 catch (Exception)
                 {
-                    return -1;
+                    return "";
                 }
 
             }
-            return res;
+            return ((response.StatusCode >= HttpStatusCode.OK && response.StatusCode < HttpStatusCode.Ambiguous) || ignoreHttpCode) ? res : "";
         }
 
         public static string get_country_name(string countryId)
@@ -884,10 +1109,10 @@ namespace Gourl.GoUrlCore
                 {"COL", "Colombia"},
                 {"COM", "Comoros"},
                 {"COG", "Congo"},
-                {"COD", "Congo}, {Democratic Republic"},
+                {"COD", "Congo, Democratic Republic"},
                 {"COK", "Cook Islands"},
                 {"CRI", "Costa Rica"},
-                {"CIV", "Côte d’Ivoire"},
+                {"CIV", "Cote d'Ivoire"},
                 {"HRV", "Croatia"},
                 {"CUB", "Cuba"},
                 {"CUW", "Curacao"},
@@ -1015,7 +1240,7 @@ namespace Gourl.GoUrlCore
                 {"PRT", "Portugal"},
                 {"PRI", "Puerto Rico"},
                 {"QAT", "Qatar"},
-                {"REU", "Réunion"},
+                {"REU", "Reunion"},
                 {"ROM", "Romania"},
                 {"RUS", "Russia"},
                 {"RWA", "Rwanda"},
@@ -1094,22 +1319,56 @@ namespace Gourl.GoUrlCore
         public static string cryptobox_sellanguage(string language = "en")
         {
             string lan = "en";
-            string id = "gourlcryptolang";
+            string id = ConfigurationManager.AppSettings["CryptoboxLanguageHTMLId"] ?? "gourlcryptolang";
             language = language.ToLower();
             string[] langArr = { "en", "es", "fr", "de", "nl", "it", "ru", "pl", "pt", "fa", "ko", "ja", "id", "tr", "ar", "cn", "zh", "hi" };
-            
-            if (HttpContext.Current.Request.QueryString[id] != null && HttpContext.Current.Request.QueryString[id] != "" && langArr.Contains(HttpContext.Current.Request.QueryString[id]))
+
+            if (HttpContext.Current.Request.QueryString[id] != null &&
+                HttpContext.Current.Request.QueryString[id] != "" &&
+                langArr.Contains(HttpContext.Current.Request.QueryString[id]) &&
+                ConfigurationManager.AppSettings["CryptoboxLanguageHTMLIdIgnore"] == null)
             {
                 lan = HttpContext.Current.Request.QueryString[id];
                 HttpContext.Current.Response.Cookies.Add(new HttpCookie(id, lan) { Expires = DateTime.Now + TimeSpan.FromDays(7) });
             }
             else if (HttpContext.Current.Request.Cookies[id] != null &&
                      HttpContext.Current.Request.Cookies[id].Value != String.Empty &&
-                     langArr.Contains(HttpContext.Current.Request.Cookies[id].Value))
+                     langArr.Contains(HttpContext.Current.Request.Cookies[id].Value) &&
+                     ConfigurationManager.AppSettings["CryptoboxLanguageHTMLIdIgnore"] == null)
             {
                 lan = HttpContext.Current.Request.Cookies[id].Value;
             }
             return lan;
+        }
+
+        public static String StripTags(String input, params String[] allowedTags)
+        {
+            if (String.IsNullOrEmpty(input)) return input;
+            MatchEvaluator evaluator = m => String.Empty;
+            if (allowedTags != null && allowedTags.Length > 0)
+            {
+                Regex reAllowed = new Regex(String.Format(@"^<(?:{0})\b|\/(?:{0})>$", String.Join("|", allowedTags.Select(x => Regex.Escape(x)).ToArray())));
+                evaluator = m => reAllowed.IsMatch(m.Value) ? m.Value : String.Empty;
+            }
+            return Regex.Replace(input, @"<[^>]+?\/?>", evaluator);
+        }
+
+        public static string EscapeText(string text)
+        {
+            text = text.Replace("\\u", "\\\\u");
+            text = text.Replace("&amp;", "&aamp;");
+            text = text.Replace(@"\/", @"\\/");
+
+            return text;
+        }
+
+        public static string UnEscapeText(string text)
+        {
+            text = text.Replace("\\\\u", "\\u");
+            text = text.Replace("&aamp;", "&amp;");
+            text = text.Replace(@"\\/", @"\/");
+
+            return text;
         }
     }
 

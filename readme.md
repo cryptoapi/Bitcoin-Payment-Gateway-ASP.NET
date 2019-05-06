@@ -34,11 +34,11 @@ Instruction - ASP .NET Bitcoin/Altcoin Package
 ----------------------------------------------
 1. Two Version Available (stable version 1.0.10 - iFrame payment box and version 1.2.0 RC1 - mobile friendly json payment box)
   
-  * A. Version 1.1.0 - Stable, iFrame Payment Box, Not Mobile Friendly. [Demo&#187;](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang)
+  * A. Version 1.0.10 - Stable, iFrame Payment Box, Not Mobile Friendly. [Demo&#187;](https://gourl.io/bitcoin-payment-gateway-api.html?gourlcryptolang=en#gourlcryptolang)
    
     Install package from nuget.org - https://www.nuget.org/packages/GoUrl.io/ (command "Install-Package GoUrl.io", it is package only without examples, Iframe, not mobile friendly) 
     
-    or download full package v1.1.0 with Examples from [github](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/releases) / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
+    or download full package v1.0.10 with Examples from [github](https://github.com/cryptoapi/Bitcoin-Payment-Gateway-ASP.NET/releases) / [gourl.io](https://coins.gourl.io/lib/gourl_asp.rar) directly
 
    * B. Version 1.2.0RC1 (release candidate 1), Json Payment Box, Mobile Friendly, White Label Product. [Demo&#187;](https://gourl.io/lib/examples/example_customize_box.php?deb=no#b)
    
